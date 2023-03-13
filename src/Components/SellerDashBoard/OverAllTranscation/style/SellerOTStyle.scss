@@ -1,0 +1,150 @@
+.selleot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    .sell-head {
+        padding-top: 2rem;
+        font-size: 3rem;
+    }
+
+    .sellerot-date-container {
+        padding: 3rem 1rem;
+
+        .sellerot-date-wrapper {
+            display: flex;
+            gap: 5rem;
+
+            .sell-start-date {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                font-size: 1.5rem;
+                font-weight: 600;
+
+                .sell-ot-input {
+                    font-size: 1.4rem;
+
+                }
+
+            }
+
+            .sell-end-date {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                font-size: 1.5rem;
+                font-weight: 600;
+
+                .sell-ot-input {
+                    font-size: 1.4rem;
+
+                }
+            }
+
+
+
+
+
+        }
+    }
+
+    .seller-trans-detail-cont {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 1rem;
+        overflow-y: scroll;
+        height: 35rem;
+
+        .seller-trans-detail-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6rem;
+            background-color: burlywood;
+            font-size: 1.8rem;
+            font-weight: 800;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+
+            .sel-con-name {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .sel-con-date {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .sel-con-purpose {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+
+
+
+
+            .sel-con-amt {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: red;
+
+            }
+
+        }
+
+    }
+
+    @media (max-width: 600px) {
+
+        .sellerot-date-container {
+            .sellerot-date-wrapper {
+                gap: 1rem;
+
+                .sell-start-date {
+
+                    .sell-ot-input {
+                        font-size: 1rem;
+
+                    }
+                }
+
+
+                .sell-end-date {
+
+                    .sell-ot-input {
+                        font-size: 1rem;
+
+                    }
+                }
+
+            }
+        }
+
+
+        .sell-start-date {
+            font-size: 1rem;
+        }
+
+        .seller-trans-detail-cont {
+
+            height: 60rem;
+
+            .seller-trans-detail-wrapper {
+                gap: 1.4rem;
+                padding: 1rem 3rem;
+            }
+        }
+
+
+    }
+
+}

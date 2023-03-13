@@ -1,0 +1,412 @@
+.CMenu {
+
+
+    .containers {
+
+
+
+        .side-bar {
+            // width: 30rem;
+            background-color: white;
+            color: black;
+            font-size: 2.5rem;
+            height: 100vh;
+            border: 1px solid black;
+            top: 0;
+            position: sticky;
+            display: flex;
+            flex-direction: column;
+
+
+
+
+
+            .sidebar-logo {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 1rem;
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+                border-top: 1px solid;
+                border-bottom: 1px solid;
+
+
+                .icon {
+                    display: flex;
+                    align-items: center;
+                    color: black;
+                    font-size: 3rem;
+                }
+
+                .logo {
+                    font-size: 2.5rem;
+                    font-weight: 700;
+
+                    &::selection {
+                        background: transparent;
+                    }
+
+                }
+
+            }
+
+            .sidebar-profile {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+                padding: 1.5rem 1rem;
+                border-bottom: 1px solid black;
+
+                .img {
+                    display: flex;
+                    align-items: center;
+                }
+
+                img {
+                    border-radius: 50%;
+                    width: 5rem;
+                    height: 5rem;
+                }
+
+                .username {
+                    font-weight: 700;
+                    font-size: 2rem;
+
+                    &::selection {
+                        background: transparent;
+                    }
+
+                }
+            }
+
+            .sidebar-dashboard {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                // border-bottom: 1px solid black;
+                padding: 1.5rem 1rem;
+                transition: all .5s;
+
+                .dasboard-icon {
+                    padding: 1rem;
+                    font-size: 2.5rem;
+                    font-weight: 600;
+                    color: black;
+                    transition: all .3s;
+                    cursor: pointer;
+                    display: none;
+
+                    &:active {
+                        scale: 1.1;
+                    }
+
+                }
+
+                &:hover {
+                    background-color: greenyellow;
+                }
+
+
+                .dashboard {
+                    font-weight: 600;
+                    font-size: 2rem;
+                    transition: all .5s;
+                    text-decoration: none;
+                    color: black;
+                    cursor: pointer;
+
+
+                    &::selection {
+                        background-color: transparent;
+                    }
+
+                    &:active {
+                        scale: 1.1;
+                    }
+
+                }
+
+
+            }
+
+            .sidebar-transac {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                .shop-icon {
+                    padding: 1rem;
+                    font-size: 2.5rem;
+                    font-weight: 600;
+                    transition: all .3s;
+                    cursor: pointer;
+                    color: black;
+                    display: none;
+
+                    &:active {
+                        scale: 1.1;
+                    }
+                }
+
+
+                .shop {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-weight: 600;
+                    padding: 1.5rem 1rem;
+                    width: 100%;
+                    pointer-events: all;
+                    transition: all .5s;
+                    font-size: 2rem;
+
+
+
+                    &:hover {
+                        background-color: greenyellow;
+                    }
+
+                    .shop-text::selection {
+                        background-color: transparent;
+                    }
+
+                    .shop-text {
+                        text-decoration: none;
+                        color: black;
+                        transition: all .5s;
+                        cursor: pointer;
+                    }
+
+                    .shop-text:active {
+                        scale: 1.1;
+                    }
+
+                    // border-bottom: 1px solid black;
+
+                }
+
+                .oTrans {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-weight: 600;
+                    padding: 1.5rem 1rem;
+                    width: 100%;
+                    pointer-events: all;
+                    transition: all .5s;
+                    text-align: center;
+                    font-size: 2rem;
+
+
+                    .oTrans-icon {
+                        padding: 1rem;
+                        font-size: 2.5rem;
+                        font-weight: 600;
+                        transition: all .3s;
+                        cursor: pointer;
+                        display: none;
+                        text-decoration: none;
+
+                        &:active {
+                            scale: 1.1;
+                        }
+
+                    }
+
+
+                    &:hover {
+                        background-color: greenyellow;
+                    }
+
+                    .oTrans-text::selection {
+                        background-color: transparent;
+                    }
+
+                    .oTrans-text {
+                        color: black;
+                        transition: all .5s;
+                        text-decoration: none;
+                        cursor: pointer;
+                    }
+
+                    .oTrans-text:active {
+                        scale: 1.1;
+                    }
+
+                    // border-bottom: 1px solid black;
+
+                }
+
+                .iTrans {
+                    font-size: 2.4 rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-weight: 600;
+                    padding: 1.5rem 1rem;
+                    width: 100%;
+                    pointer-events: all;
+                    transition: all .5s;
+                    text-align: center;
+                    font-size: 2rem;
+
+                    .iTrans-icon {
+                        padding: 1rem;
+                        font-size: 2.5rem;
+                        font-weight: 600;
+                        transition: all .3s;
+                        cursor: pointer;
+                        display: none;
+                        text-decoration: none;
+                        color: black;
+
+                        &:active {
+                            scale: 1.1;
+                        }
+                    }
+
+                    &:hover {
+                        background-color: greenyellow;
+                    }
+
+                    .iTrans-text::selection {
+                        background-color: transparent;
+                    }
+
+                    .iTrans-text {
+                        transition: all .5s;
+                        color: black;
+                        text-decoration: none;
+                        cursor: pointer;
+                    }
+
+                    .iTrans-text:active {
+                        scale: 1.1;
+                    }
+
+                    // border-bottom: 1px solid black;
+                }
+
+                .logout {
+                    font-size: 2.4 rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-weight: 600;
+                    padding: 1.5rem 1rem;
+                    width: 100%;
+                    pointer-events: all;
+                    transition: all .5s;
+                    text-align: center;
+                    font-size: 2rem;
+
+                    .logout-icon {
+                        padding: 1rem;
+                        font-size: 2.5rem;
+                        font-weight: 600;
+                        transition: all .3s;
+                        cursor: pointer;
+                        display: none;
+                        text-decoration: none;
+                        color: black;
+
+                        &:active {
+                            scale: 1.1;
+                        }
+                    }
+
+                    &:hover {
+                        background-color: greenyellow;
+                    }
+
+                    .logout-text::selection {
+                        background-color: transparent;
+                    }
+
+                    .logout-text {
+                        transition: all .5s;
+                        color: black;
+                        text-decoration: none;
+                        cursor: pointer;
+                    }
+
+                    .logout-text:active {
+                        scale: 1.1;
+                    }
+
+
+
+                }
+
+            }
+
+        }
+
+
+    }
+}
+
+
+
+@media (max-width: 1100px) {
+
+    .logo {
+        display: none;
+    }
+
+    .icon {
+        // padding-left: 1rem;
+    }
+
+    .dasboard-icon {
+        display: block !important;
+    }
+
+    .dashboard {
+        display: none;
+    }
+
+    .username {
+        display: none;
+    }
+
+    .shop-icon {
+        display: block !important;
+    }
+
+    .shop-text {
+        display: none;
+    }
+
+    .oTrans-icon {
+        display: block !important;
+    }
+
+    .oTrans-text {
+        display: none;
+    }
+
+    .iTrans-icon {
+        display: block !important;
+    }
+
+    .iTrans-text {
+        display: none;
+    }
+
+    .logout-icon {
+        display: block !important;
+    }
+
+    .logout-text {
+        display: none;
+    }
+
+
+}
+
+@media (max-width: 800px) {}

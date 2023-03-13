@@ -1,0 +1,160 @@
+.usersel-cont {
+
+    .container {
+        width: 100%;
+        height: 100vh;
+        // overflow-y: hidden;
+
+        .login {
+            padding: 1.5rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-right: 3rem;
+            font-size: 2rem;
+            border-bottom: 1px solid;
+            height: 7rem;
+
+            .m-logo {
+                font-size: 2rem;
+                font-weight: 600;
+                font-weight: 800;
+
+                &::selection {
+                    background: transparent;
+                }
+            }
+
+            .btn {
+                display: flex;
+                justify-content: center;
+                font-size: 2rem;
+                font-weight: 600;
+                border: 1px solid black;
+                padding: .5rem;
+                transition: all .4s;
+                box-shadow: 1px 1px 3px black;
+                width: 10rem;
+                border-radius: .5rem;
+
+                &:active {
+                    scale: 1.1;
+                }
+
+                &::selection {
+                    background-color: transparent;
+                }
+
+            }
+
+
+
+        }
+
+        .user-selection {
+            display: flex;
+            width: 100%;
+            height: calc(100vh - 7rem);
+            font-size: 2rem;
+
+            .left {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                pointer-events: none;
+                border-radius: 1px;
+                transition: all 1s;
+
+
+
+                &:hover {
+                    background-color: rgb(58, 55, 55);
+                    height: 100%;
+                    // color: white;
+                }
+
+                .text1 {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding-right: 1rem;
+                    pointer-events: all;
+                    border: 1px solid black;
+                    padding: 1rem;
+                    margin-right: 1rem;
+                    width: 15rem;
+                    transition: all .3s;
+                    text-decoration: none;
+                    color: black;
+
+
+                    &:hover {
+                        border: 1px solid white;
+                        color: white;
+                    }
+
+                    &:active {
+                        scale: 1.1;
+                    }
+
+                    &::selection {
+                        background-color: transparent;
+                    }
+
+                }
+            }
+
+
+        }
+
+        .right {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            pointer-events: none;
+            transition: all 1s;
+
+            &:hover {
+                background-color: rgb(58, 55, 55);
+                height: 100%;
+                color: white;
+            }
+
+            .text2 {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding-right: 1rem;
+                pointer-events: all;
+                border: 1px solid black;
+                padding: 1rem;
+                margin-left: 1rem;
+                width: 15rem;
+                transition: all .3s;
+                text-decoration: none;
+                color: black;
+
+
+
+
+                &:hover {
+                    border: 1px solid white;
+                    color: white;
+                }
+
+                &:active {
+                    scale: 1.1;
+                }
+
+                &::selection {
+                    background-color: transparent;
+                }
+            }
+
+        }
+
+    }
+
+}

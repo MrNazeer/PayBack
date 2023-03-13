@@ -1,0 +1,79 @@
+.ConsumerIT {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.5rem;
+
+    .sellerIT-head-cont {
+        padding-top: 2rem;
+        font-size: 2rem;
+    }
+
+    .sellerIt-trans-cont {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem;
+        height: 40rem;
+        overflow-y: scroll;
+
+
+        .sellerIt-trans-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8rem;
+            justify-content: space-between;
+            background-color: burlywood;
+            padding: 2rem;
+            font-weight: 600;
+            border-radius: 5px;
+
+            .sellerIT-trans-left {
+                display: flex;
+                align-items: center;
+                gap: 4rem;
+
+                .sellerIt-Name {
+                    font-size: 1.8rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .sellerIt-view {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 1rem;
+
+                    &:hover {
+                        color: blue;
+                    }
+
+                    &::selection {
+                        background: transparent;
+                    }
+                }
+
+            }
+
+            .sellerIt-Amt {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.8rem;
+                color: red;
+            }
+
+        }
+    }
+
+    @media (max-width:600px) {
+
+        .sellerIt-trans-cont {
+            height: 70rem;
+        }
+    }
+
+}
