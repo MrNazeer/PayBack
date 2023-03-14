@@ -22,8 +22,8 @@ export function Sdashboard() {
         </article>
         <article className="Buyers_add-del">
           <div className="buy-btn-wraper">
-            <div className="add-buyer">Add Buyer</div>
-            <div className="del-buyer">Delete Buyer</div>
+            <NavLink to="/Qrreader" className="add-buyer">Add Buyer</NavLink>
+            <NavLink to="/Qrreader" className="del-buyer">Delete Buyer</NavLink>
           </div>
         </article>
       </section>
