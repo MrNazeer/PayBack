@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/PayBack/static/css/main.6a4f4d98.css",
+    "main.js": "/PayBack/static/js/main.17590c03.js",
+    "static/media/img.jpg": "/PayBack/static/media/img.8d17f538b1ae33786b27.jpg",
+    "static/media/profile.jpg": "/PayBack/static/media/profile.d9f44494b40c0e6c9dfa.jpg",
+    "index.html": "/PayBack/index.html",
+    "main.6a4f4d98.css.map": "/PayBack/static/css/main.6a4f4d98.css.map",
+    "main.17590c03.js.map": "/PayBack/static/js/main.17590c03.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6a4f4d98.css",
+    "static/js/main.17590c03.js"
+  ]
+}
