@@ -11,11 +11,11 @@ export function CoverallTrans() {
         <div className="sellerot-date-wrapper">
           <div className="sell-start-date">
             <label htmlFor="">Start Date</label>
-            <input className="sell-ot-input" type="datetime-local" />
+            <input className="sell-ot-input" type="date" />
           </div>
           <div className="sell-end-date">
             <label htmlFor="">End Date</label>
-            <input className="sell-ot-input" type="datetime-local" />
+            <input className="sell-ot-input" type="date" />
           </div>
         </div>
       </section>

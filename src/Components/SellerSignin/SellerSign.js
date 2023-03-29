@@ -1,5 +1,5 @@
 import React from "react";
-import { GoogleLogin } from "react-google-login";
+import { GoogleLogin, GoogleLogout } from "react-google-login";
 import "./style/Selsign.scss";
 import { useEffect } from "react";
 import { gapi } from "gapi-script";
@@ -25,11 +25,29 @@ const onFailure = (res) => {
   console.log("LOGIN FAILED! red: ", res);
 };
 
+const logout = () => {
+  console.log("Log out successfully");
+};
+
+
+const signIn = async () => {
+  try {
+    const user = await gapi.auth2.signIn();
+    const token = await gapi.auth2.getToken();
+    
+    console.log(user);
+    console.log(token);
+
+  } catch (err) {
+    // Handle errors
+  }
+};
+
 export default function SellerSign() {
   useEffect(() => {
     function start() {
-      gapi.client.init({
-        clientId: clientId,
+      gapi.auth2.init({
+        client_id: clientId,
         scope: "",
       });
     }
@@ -41,7 +59,9 @@ export default function SellerSign() {
       <div className="sel-container">
         <div className="menu">
           <p className="slogo">PayBack</p>
-          <Link to ="/sellersign/sellerlogin" className="btn">Login</Link>
+          <Link to="/sellersign/sellerlogin" className="btn">
+            Login
+          </Link>
         </div>
         <section className="sel-profile">
           <article className="inputs">
@@ -80,13 +100,20 @@ export default function SellerSign() {
             <div className="name">
               <div className="gbtn">
                 <GoogleLogin
-                  clientId="clientId"
+                  clientId={clientId}
                   buttonText="Login"
                   onSuccess={onSuccess}
                   onFailure={onFailure}
                   cookiePolicy={"single_host_orgin"}
                   isSignedIn={true}
                   className="GoogleLogin"
+                  onClick={signIn}
+                />
+                <br />
+                <GoogleLogout
+                  clientId={clientId}
+                  buttonText="Logout"
+                  onLogoutSuccess={logout}
                 />
               </div>
               <div className="lname"></div>
@@ -97,3 +124,4 @@ export default function SellerSign() {
     </div>
   );
 }
+

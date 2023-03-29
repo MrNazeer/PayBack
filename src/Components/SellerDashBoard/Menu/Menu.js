@@ -1,13 +1,13 @@
 import React from "react";
 import "./style/menu.scss";
-import { NavLink  } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import img from "./profile.jpg";
 import { AiFillBook } from "react-icons/ai";
 import { RxDashboard } from "react-icons/rx";
-import { GrTransaction } from "react-icons/gr";
 import { BsFileEarmarkPersonFill } from "react-icons/bs";
 import { BsFillPersonFill } from "react-icons/bs";
 import { BiLogOut } from "react-icons/bi";
+import { MdRepeat } from "react-icons/md";
 
 export default function Menu() {
   return (
@@ -27,37 +27,74 @@ export default function Menu() {
             <div className="username">Nazeer ahamed</div>
           </article>
           <article className="sidebar-dashboard">
-            <NavLink to="Sdashboard" className="dasboard-icon">
+            <NavLink
+              to="Sdashboard"
+              style={({ isActive }) => ({
+                color: isActive ? "red" : "black",
+              })}
+              className="dasboard-icon"
+            >
               <RxDashboard />
             </NavLink>
-            <NavLink to="Sdashboard" className="dashboard">Dashborad</NavLink>
+            <NavLink
+              to="Sdashboard"
+              style={({ isActive }) => ({
+                color: isActive ? "red" : "black",
+              })}
+              className="dashboard"
+            >
+              Dashborad
+            </NavLink>
           </article>
           <article className="sidebar-transac">
             <div className="shop">
-              <NavLink  to="consumer" className="shop-icon">
+              <NavLink to="consumer" style={({ isActive }) => ({
+                color: isActive ? "red" : "black",
+              })} className="shop-icon">
                 <BsFillPersonFill />
               </NavLink>
-              <NavLink  to="consumer" className="shop-text">Your Consumer</NavLink>
+              <NavLink to="consumer" style={({ isActive }) => ({
+                color: isActive ? "red" : "black",
+              })} className="shop-text">
+                Your Consumer
+              </NavLink>
             </div>
             <div className="oTrans">
-              <NavLink to="SellerOT" className="oTrans-icon">
-                <GrTransaction />
+              <NavLink to="SellerOT" style={({ isActive }) => ({
+                color: isActive ? "red" : "black",
+              })} className="oTrans-icon">
+                <MdRepeat />
               </NavLink>
-              <NavLink  to="SellerOT" className="oTrans-text"> Over All Transactions</NavLink>
+              <NavLink to="SellerOT" style={({ isActive }) => ({
+                color: isActive ? "red" : "black",
+              })} className="oTrans-text">
+                Over All Transactions
+              </NavLink>
             </div>
             <div className="iTrans">
-              <NavLink  to="SellerIT" className="iTrans-icon">
+              <NavLink to="SellerIT" style={({ isActive }) => ({
+                color: isActive ? "red" : "black",
+              })} className="iTrans-icon">
                 <BsFileEarmarkPersonFill />
               </NavLink>
-              <NavLink to="SellerIT" className="iTrans-text">Individual Transactions</NavLink>
+              <NavLink to="SellerIT" style={({ isActive }) => ({
+                color: isActive ? "red" : "black",
+              })} className="iTrans-text">
+                Individual Transactions
+              </NavLink>
             </div>
             <div className="logout">
-              <NavLink  to="/" className="logout-icon">
+              <NavLink to="/" style={({ isActive }) => ({
+                color: isActive ? "red" : "black",
+              })} className="logout-icon">
                 <BiLogOut />
               </NavLink>
-              <NavLink to="/" className="logout-text">Log Out</NavLink>
+              <NavLink to="/" style={({ isActive }) => ({
+                color: isActive ? "red" : "black",
+              })} className="logout-text">
+                Log Out
+              </NavLink>
             </div>
-
           </article>
         </section>
       </div>
