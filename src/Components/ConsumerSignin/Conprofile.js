@@ -1,8 +1,41 @@
 import React from "react";
-import { GoogleLogin } from "react-google-login";
+import { GoogleLogin, GoogleLogout } from "react-google-login";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { gapi } from "gapi-script";
 import "./style/_conprofile.scss";
 
+
+
+// import axios from 'axios';
+
+// Function to encode image file to base64 string
+// const encodeImageFileAsURL = (file) => {
+//   return new Promise((resolve, reject) => {
+//     const reader = new FileReader();
+//     reader.onloadend = () => {
+//       resolve(reader.result);
+//     };
+//     reader.onerror = reject;
+//     reader.readAsDataURL(file);
+//   });
+// };
+
+// Function to make Axios request with encoded image data
+
+// const makeRequest = async () => {
+//   const fileInput = document.querySelector('input[type="file"]');
+//   const imageFile = fileInput.files[0];
+//   const imageData = await encodeImageFileAsURL(imageFile);
+//   const response = await axios.post('/upload', { imageData });
+//   console.log(response);
+// };
+
+
+
+
+const clientId =
+  "346729302127-lt9a58fdsgd7c78sa7ccc6g2dgub119o.apps.googleusercontent.com";
 
 function showPassword() {
   var x = document.querySelector(".password");
@@ -13,7 +46,48 @@ function showPassword() {
   }
 }
 
+
+const onSuccess = (res) => {
+  console.log("LOGIN SUCCESS! Current User: ", res.profileObj);
+};
+
+const onFailure = (res) => {
+  console.log("LOGIN FAILED! red: ", res);
+};
+
+const logout = () => {
+  console.log("Log out successfully");
+};
+
+
+const signIn = async () => {
+  try {
+    const user = await gapi.auth2.signIn();
+    const token = await gapi.auth2.getToken();
+    
+    console.log(user);
+    console.log(token);
+
+  } catch (err) {
+    // Handle errors
+  }
+};
+
+
+
 export default function Conprofile() {
+  
+  useEffect(() => {
+    function start() {
+      gapi.auth2.init({
+        client_id: clientId,
+        scope: "",
+      });
+    }
+    gapi.load("client:auth2", start);
+  });
+  
+  
   return (
     <div className="container">
       <div className="con-container">
@@ -54,15 +128,23 @@ export default function Conprofile() {
             </div>
           </article>
           <article className="divide"></article>
-          <article className="oauth">
-              <div className="gbtn">
-                <GoogleLogin
-                  clientId=""
+          <article className="c-oauth">
+              <div className="c-gbtn">
+              <GoogleLogin
+                  clientId={clientId}
                   buttonText="Login"
-                  // onSuccess={onSuccess}
-                  // onFailure={onFailure}
+                  onSuccess={onSuccess}
+                  onFailure={onFailure}
                   cookiePolicy={"single_host_orgin"}
                   isSignedIn={true}
+                  className="c-glogin-btn"
+                  onClick={signIn}
+                />
+                <GoogleLogout
+                  clientId={clientId}
+                  buttonText="Logout"
+                  onLogoutSuccess={logout}
+                  className="c-glogout-btn"
                 />
               </div>
           </article>

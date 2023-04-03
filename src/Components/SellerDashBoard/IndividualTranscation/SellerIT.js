@@ -1,5 +1,7 @@
 import React from "react";
 import "./style/SellerITstyle.scss";
+import { NavLink } from "react-router-dom";
+import { GrMail } from "react-icons/gr";
 
 export function SellerIT() {
   return (
@@ -11,46 +13,17 @@ export function SellerIT() {
         <article className="sellerIt-trans-wrapper">
           <div className="sellerIT-trans-left">
             <div className="sellerIt-Name">Nazeer</div>
-            <div className="sellerIt-view">View Transaction</div>
+            <NavLink to="/sellerViewIndividualTrans" className="sellerIt-view">
+              View Transaction
+            </NavLink>
           </div>
-          <div className="sellerIt-Amt">10000</div>
-        </article>
-        <article className="sellerIt-trans-wrapper">
-          <div className="sellerIT-trans-left">
-            <div className="sellerIt-Name">Nazeer</div>
-            <div className="sellerIt-view">View Transaction</div>
+          <div className="sellerIT-trans-right">
+            <div className="seller-mail">
+              <GrMail />
+            </div>
+            <div className="sellerIt-Amt">10000</div>
           </div>
-          <div className="sellerIt-Amt">10000</div>
         </article>
-        <article className="sellerIt-trans-wrapper">
-          <div className="sellerIT-trans-left">
-            <div className="sellerIt-Name">Nazeer</div>
-            <div className="sellerIt-view">View Transaction</div>
-          </div>
-          <div className="sellerIt-Amt">10000</div>
-        </article>
-        <article className="sellerIt-trans-wrapper">
-          <div className="sellerIT-trans-left">
-            <div className="sellerIt-Name">Nazeer</div>
-            <div className="sellerIt-view">View Transaction</div>
-          </div>
-          <div className="sellerIt-Amt">10000</div>
-        </article>
-        <article className="sellerIt-trans-wrapper">
-          <div className="sellerIT-trans-left">
-            <div className="sellerIt-Name">Nazeer</div>
-            <div className="sellerIt-view">View Transaction</div>
-          </div>
-          <div className="sellerIt-Amt">10000</div>
-        </article>
-        <article className="sellerIt-trans-wrapper">
-          <div className="sellerIT-trans-left">
-            <div className="sellerIt-Name">Nazeer</div>
-            <div className="sellerIt-view">View Transaction</div>
-          </div>
-          <div className="sellerIt-Amt">10000</div>
-        </article>
-        
       </section>
     </div>
   );

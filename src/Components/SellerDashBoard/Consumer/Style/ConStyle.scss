@@ -102,6 +102,9 @@
                 gap: 3rem;
 
                 .con-reset {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     font-size: 2rem;
                     transition: all .3s;
                     cursor: pointer;
@@ -110,16 +113,31 @@
                         scale: 1.3;
 
                     }
+
+                    .edit {
+                        &:hover {
+                            color: blue;
+                        }
+                    }
                 }
 
                 .con-delete {
-                    font-size: 2rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 2.5rem;
                     transition: all .3s;
                     cursor: pointer;
 
                     &:active {
                         scale: 1.3;
 
+                    }
+
+                    .con-it-reset {
+                        &:hover {
+                            color: blue !important;
+                        }
                     }
                 }
 

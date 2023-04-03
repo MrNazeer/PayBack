@@ -8,8 +8,8 @@ export  function CDashboard() {
     <div className="Cdashboard">
       <section className="Sdb-Wraper">
         <article className="Spayment-btn">
-          <NavLink to="/Qrreader" className="Spay-btn">Scan QR</NavLink>
-          <NavLink  to="/Qrshow" className="Srec-btn">Show QR</NavLink>
+          <NavLink to="/ConsumerQrScan" className="Spay-btn">Scan QR</NavLink>
+          <NavLink  to="/ConsumerQrShow" className="Srec-btn">Show QR</NavLink>
         </article>
         <article className="S-CB-details">
           <div className="Scredit-detail-wraper">

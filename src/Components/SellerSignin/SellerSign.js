@@ -1,12 +1,35 @@
 import React from "react";
-import { GoogleLogin, GoogleLogout } from "react-google-login";
 import "./style/Selsign.scss";
-import { useEffect } from "react";
-import { gapi } from "gapi-script";
 import { Link } from "react-router-dom";
 
-const clientId =
-  "346729302127-lt9a58fdsgd7c78sa7ccc6g2dgub119o.apps.googleusercontent.com";
+// import axios from 'axios';
+
+// Function to encode image file to base64 string
+// const encodeImageFileAsURL = (file) => {
+//   return new Promise((resolve, reject) => {
+//     const reader = new FileReader();
+//     reader.onloadend = () => {
+//       resolve(reader.result);
+//     };
+//     reader.onerror = reject;
+//     reader.readAsDataURL(file);
+//   });
+// };
+
+// Function to make Axios request with encoded image data
+
+// const makeRequest = async () => {
+//   const fileInput = document.querySelector('input[type="file"]');
+//   const imageFile = fileInput.files[0];
+//   const imageData = await encodeImageFileAsURL(imageFile);
+//   const response = await axios.post('/upload', { imageData });
+//   console.log(response);
+// };
+
+
+
+
+
 
 function showPassword() {
   var x = document.querySelector(".password");
@@ -17,43 +40,7 @@ function showPassword() {
   }
 }
 
-const onSuccess = (res) => {
-  console.log("LOGIN SUCCESS! Current User: ", res.profileObj);
-};
-
-const onFailure = (res) => {
-  console.log("LOGIN FAILED! red: ", res);
-};
-
-const logout = () => {
-  console.log("Log out successfully");
-};
-
-
-const signIn = async () => {
-  try {
-    const user = await gapi.auth2.signIn();
-    const token = await gapi.auth2.getToken();
-    
-    console.log(user);
-    console.log(token);
-
-  } catch (err) {
-    // Handle errors
-  }
-};
-
 export default function SellerSign() {
-  useEffect(() => {
-    function start() {
-      gapi.auth2.init({
-        client_id: clientId,
-        scope: "",
-      });
-    }
-    gapi.load("client:auth2", start);
-  });
-
   return (
     <div className="container">
       <div className="sel-container">
@@ -70,7 +57,7 @@ export default function SellerSign() {
               <label htmlFor="">Name</label>
               <input type="text" />
             </div>
-            <div className="lname ">
+            <div className="Sname ">
               <label htmlFor="">Shop Name</label>
               <input type="text" />
             </div>
@@ -81,6 +68,10 @@ export default function SellerSign() {
             <div className="email">
               <label htmlFor="">Email</label>
               <input type="email" />
+            </div>
+            <div className="pic">
+              <label htmlFor="">Profile Pic</label>
+              <input type="file" name="img" id="img"  className="img"/>
             </div>
             <div className="pass">
               <label htmlFor="">Password</label>
@@ -95,33 +86,8 @@ export default function SellerSign() {
               <div className="btn">Submit</div>
             </div>
           </article>
-          <article className="divide"></article>
-          <article className="oauth">
-            <div className="name">
-              <div className="gbtn">
-                <GoogleLogin
-                  clientId={clientId}
-                  buttonText="Login"
-                  onSuccess={onSuccess}
-                  onFailure={onFailure}
-                  cookiePolicy={"single_host_orgin"}
-                  isSignedIn={true}
-                  className="GoogleLogin"
-                  onClick={signIn}
-                />
-                <br />
-                <GoogleLogout
-                  clientId={clientId}
-                  buttonText="Logout"
-                  onLogoutSuccess={logout}
-                />
-              </div>
-              <div className="lname"></div>
-            </div>
-          </article>
         </section>
       </div>
     </div>
   );
 }
-

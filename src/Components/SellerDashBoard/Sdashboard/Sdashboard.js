@@ -7,8 +7,7 @@ export function Sdashboard() {
     <div className="sdashboard">
       <section className="Sdb-Wraper">
         <article className="Spayment-btn">
-          <NavLink to="/Qrreader" className="Spay-btn">Scan QR</NavLink>
-          <NavLink to="/Qrshow" className="Srec-btn">Show QR</NavLink>
+          <NavLink to="/SellerQrShow" className="Srec-btn">Show QR</NavLink>
         </article>
         <article className="S-CB-details">
           <div className="Scredit-detail-wraper">
@@ -22,8 +21,8 @@ export function Sdashboard() {
         </article>
         <article className="Buyers_add-del">
           <div className="buy-btn-wraper">
-            <NavLink to="/Qrreader" className="add-buyer">Add Buyer</NavLink>
-            <NavLink to="/Qrreader" className="del-buyer">Delete Buyer</NavLink>
+            <NavLink to="/AddBuyer" className="add-buyer">Add Buyer</NavLink>
+            <NavLink to="/DeleteBuyer" className="del-buyer">Delete Buyer</NavLink>
           </div>
         </article>
       </section>

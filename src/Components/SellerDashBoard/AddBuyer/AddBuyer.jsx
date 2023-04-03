@@ -1,12 +1,9 @@
 import React from "react";
 import QrReader from "react-qr-reader";
 import { useState } from "react";
-import "./style/style.scss";
 
-
-export  function Qrreader() {
-  
-  const [camResult, setcamResult] = useState();
+export function AddBuyer() {
+  const [Buyer, setBuyer] = useState();
 
   const webError = (err) => {
     if (err) {
@@ -15,18 +12,21 @@ export  function Qrreader() {
   };
   const webScan = (result) => {
     if (result) {
-      setcamResult(result);
+      let flag = window.confirm("Would you like to Add as Buyer?");
+      if (flag) {
+        setBuyer(result);
+      }
     }
   };
 
   return (
     <div
-      className="qr"
+      className="Seller-qr-Scan"
       style={{
         height: "100vh",
         display: "flex",
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
       }}
     >
       <QrReader
@@ -37,9 +37,7 @@ export  function Qrreader() {
         onScan={webScan}
         legacyMode={false}
       />
-      <p>{camResult}</p>
+      <p>{Buyer}</p>
     </div>
   );
-
-  
 }

@@ -4,12 +4,12 @@
     align-items: center;
     gap: 3.5rem;
 
-    .sellerIT-head-cont {
+    .ConIT-head-cont {
         padding-top: 2rem;
         font-size: 2rem;
     }
 
-    .sellerIt-trans-cont {
+    .ConIt-trans-cont {
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -19,7 +19,7 @@
         overflow-y: scroll;
 
 
-        .sellerIt-trans-wrapper {
+        .ConIt-trans-wrapper {
             display: flex;
             align-items: center;
             gap: 8rem;
@@ -29,23 +29,25 @@
             font-weight: 600;
             border-radius: 5px;
 
-            .sellerIT-trans-left {
+            .ConIT-trans-left {
                 display: flex;
                 align-items: center;
                 gap: 4rem;
 
-                .sellerIt-Name {
+                .conIt-Name {
                     font-size: 1.8rem;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                 }
 
-                .sellerIt-view {
+                .ConIt-view {
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     font-size: 1rem;
+                    text-decoration: none;
+                    color: black;
 
                     &:hover {
                         color: blue;
@@ -58,7 +60,7 @@
 
             }
 
-            .sellerIt-Amt {
+            .ConIt-Amt {
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -71,7 +73,7 @@
 
     @media (max-width:600px) {
 
-        .sellerIt-trans-cont {
+        .ConIt-trans-cont {
             height: 70rem;
         }
     }

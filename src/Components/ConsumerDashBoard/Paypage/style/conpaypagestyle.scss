@@ -1,0 +1,148 @@
+.pay-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 3rem;
+
+
+    .pay-input-cont {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        border: 2px solid black;
+        padding: 5rem;
+        border-radius: 5px;
+
+
+        .pay-amt-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+
+            .pay-lable {
+                font-size: 2rem;
+                font-weight: 600;
+
+            }
+
+            .pay-input {
+                border: 1px solid black;
+                border-top: 0;
+                border-left: 0;
+                border-right: 0;
+                outline: none;
+                width: 18rem;
+                font-size: 2rem;
+                font-weight: 600;
+                text-align: center;
+
+            }
+
+        }
+
+        .pay-pupose-wrapper {
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+
+
+            .pay-purpose-lable {
+                font-size: 2rem;
+                font-weight: 600;
+            }
+
+            .pay-purpose-input {
+                border: 1px solid black;
+                border-top: 0;
+                border-left: 0;
+                border-right: 0;
+                outline: none;
+                width: 18rem;
+                font-size: 2rem;
+                font-weight: 600;
+                text-align: center;
+            }
+
+
+
+        }
+
+
+
+
+    }
+
+    .pay-btn-cont {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+
+
+
+        .pay-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 20rem;
+            height: 2.5rem;
+            background-color: rgb(11, 11, 163);
+            color: white;
+            font-weight: 600;
+            font-size: 2rem;
+            padding: 2rem;
+            border-radius: 5px;
+            transition: all .5s;
+            cursor: pointer;
+
+            &::selection {
+                background-color: transparent;
+            }
+
+            &:active {
+                scale: 1.1;
+            }
+
+        }
+
+        .pay-btn-clear {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 20rem;
+            height: 2.5rem;
+            background-color: rgb(11, 11, 163);
+            color: white;
+            font-weight: 600;
+            font-size: 2rem;
+            padding: 2rem;
+            border-radius: 5px;
+            transition: all .5s;
+            cursor: pointer;
+
+            &::selection {
+                background-color: transparent;
+            }
+
+            &:active {
+                scale: 1.1;
+            }
+
+        }
+
+
+
+    }
+
+
+
+}

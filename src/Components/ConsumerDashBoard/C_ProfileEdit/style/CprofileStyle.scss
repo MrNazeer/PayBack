@@ -11,69 +11,19 @@
     flex-direction: column;
 }
 
-.con-container {
+.con-pro-container {
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
     width: 100%;
     height: 100vh;
     gap: 3rem;
 
-    .menu {
-
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        // align-items: center;
-        padding-top: 2rem;
-        padding-right: 2rem;
-
-        .clogo {
-            font-size: 2rem;
-            font-weight: 800;
-            color: black;
-            padding-left: 1rem;
-
-            &::selection {
-                background: transparent;
-            }
-        }
-
-        .btn {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2rem;
-            font-weight: 600;
-            border: 1px solid black;
-            padding: .5rem;
-            transition: all .4s;
-            box-shadow: 1px 1px 1px black;
-            width: 10rem;
-            border-radius: .5rem;
-            cursor: pointer;
-            text-decoration: none;
-            color: black;
-
-            &:hover {
-                background-color: blue;
-                color: white;
-            }
-
-            &:active {
-                scale: 1.1;
-            }
-
-            &::selection {
-                background-color: transparent;
-            }
-
-        }
-    }
 
 
 
-    .con-profile {
+    .con-profile-edit {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -82,18 +32,28 @@
 
         .inputs {
             display: flex;
+            align-items: center !important;
             flex-direction: column;
             flex: 1;
             padding: 2rem;
             gap: 2.5rem;
+
             // background-color: burlywood;
+            .title-cont {
+                display: flex;
+                justify-content: center;
 
-            .title {
-                font-size: 2.5rem;
-                font-weight: 700;
 
-                &::selection {
-                    background: transparent;
+                .title {
+                    font-size: 2.5rem;
+                    font-weight: 700;
+                    display: flex;
+                    justify-content: center !important;
+                    align-items: center !important;
+
+                    &::selection {
+                        background: transparent;
+                    }
                 }
             }
 
@@ -224,8 +184,9 @@
 
         .c-oauth {
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
+            // align-items: center;
             flex: 1;
             padding: 2rem;
             width: 100%;
@@ -250,6 +211,8 @@
                     justify-content: center;
                 }
             }
+
+
 
         }
     }

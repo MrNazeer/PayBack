@@ -1,6 +1,6 @@
 import React from "react";
 import "./style/UserSelection.scss";
-import { Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function UserSelection() {
   return (

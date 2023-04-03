@@ -8,6 +8,43 @@ import { BsFileEarmarkPersonFill } from "react-icons/bs";
 import { BsShop } from "react-icons/bs";
 import { BiLogOut } from "react-icons/bi";
 import { MdRepeat } from "react-icons/md";
+import { FaUserEdit } from "react-icons/fa";
+
+
+// import axios from 'axios';
+
+// // Function to decode base64 string to image
+// const decodeBase64Image = (dataUrl) => {
+//   const match = dataUrl.match(/^data:(.*);base64,(.*)$/);
+//   if (!match) {
+//     throw new Error('Invalid base64 string');
+//   }
+//   const contentType = match[1];
+//   const content = match[2];
+//   const byteCharacters = atob(content);
+//   const byteArrays = new Array(byteCharacters.length);
+//   for (let i = 0; i < byteCharacters.length; i++) {
+//     byteArrays[i] = byteCharacters.charCodeAt(i);
+//   }
+//   const byteArray = new Uint8Array(byteArrays);
+//   const blob = new Blob([byteArray], { type: contentType });
+//   return URL.createObjectURL(blob);
+// };
+
+// // Function to make Axios request and decode response data
+// const makeRequest = async () => {
+//   const response = await axios.get('/image');
+//   const imageData = response.data;
+//   const imageUrl = decodeBase64Image(imageData);
+//   const imageElement = document.createElement('img');
+//   imageElement.src = imageUrl;
+//   document.body.appendChild(imageElement);
+// };
+
+
+
+
+
 
 export function CMenu() {
   return (
@@ -107,6 +144,28 @@ export function CMenu() {
                 Individual Transactions
               </NavLink>
             </div>
+            <div className="c-profile-edit">
+              <NavLink
+                to="ConProfileEdit"
+                style={({ isActive }) => ({
+                  color: isActive ? "red" : "black",
+                })}
+                className="c-profile-icon"
+              >
+                <FaUserEdit />
+              </NavLink>
+              <NavLink
+                to="ConProfileEdit"
+                style={({ isActive }) => ({
+                  color: isActive ? "red" : "black",
+                })}
+                className="c-profile-text"
+              >
+                Update Profile
+              </NavLink>
+            </div>
+
+
             <div className="logout">
               <NavLink
                 to="/"

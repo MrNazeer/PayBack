@@ -1,7 +1,8 @@
 import React from "react";
 import "./Style/ConStyle.scss";
 import { FaUserEdit } from "react-icons/fa";
-import { AiFillDelete } from "react-icons/ai";
+import { BiRepost } from "react-icons/bi";
+
 export function Consumer() {
   return (
     <div className="Consumer">
@@ -15,37 +16,16 @@ export function Consumer() {
             <div className="search-btn">Search</div>
           </article>
         </section>
+
         <section className="cname-container">
           <div className="cname-wrapper">
             <div className="con-name">Nazeer</div>
             <div className="con-icon-cont">
               <div className="con-reset">
-                <FaUserEdit />
+                <FaUserEdit  className="edit"/>                
               </div>
               <div className="con-delete">
-                <AiFillDelete />
-              </div>
-            </div>
-          </div>
-          <div className="cname-wrapper">
-            <div className="con-name">Raja</div>
-            <div className="con-icon-cont">
-              <div className="con-reset">
-                <FaUserEdit />
-              </div>
-              <div className="con-delete">
-                <AiFillDelete />
-              </div>
-            </div>
-          </div>
-          <div className="cname-wrapper">
-            <div className="con-name">Ahamed</div>
-            <div className="con-icon-cont">
-              <div className="con-reset">
-                <FaUserEdit />
-              </div>
-              <div className="con-delete">
-                <AiFillDelete />
+                <BiRepost className="con-it-reset"/>
               </div>
             </div>
           </div>
