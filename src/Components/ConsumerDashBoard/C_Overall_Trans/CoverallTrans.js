@@ -1,5 +1,6 @@
 import React from "react";
 import "./style/coverallTrans.scss";
+import { BiRupee} from "react-icons/bi";
 
 export function CoverallTrans() {
   return (
@@ -20,50 +21,23 @@ export function CoverallTrans() {
         </div>
       </section>
       <section className="seller-trans-detail-cont">
-        <div className="seller-trans-detail-wrapper">
-          <div className="sel-con-name">Nazeer</div>
-          <div className="sel-con-date">17-04-2023</div>
-          <div className="sel-con-purpose">paal</div>
-          <div className="sel-con-amt">22</div>
-        </div>
-        <div className="seller-trans-detail-wrapper">
-          <div className="sel-con-name">Ananth</div>
-          <div className="sel-con-date">17-04-2023</div>
-          <div className="sel-con-purpose">paal</div>
-          <div className="sel-con-amt">22</div>
+
+      <div className="consumer-trans-detail-wrapper">
+          <div className="ctrans-name-rupe">
+            <div className="con-con-name">Paid to Wallmart</div>
+            <div className="con-con-amt">
+              <span>
+                <BiRupee />
+              </span>
+              200
+            </div>
+          </div>
+          <div className="ctrans-date-purpose">
+            <div className="con-con-date">5-4-2023</div>
+            <div className="con-con-purpose">Refind oil</div>
+          </div>
         </div>
 
-        <div className="seller-trans-detail-wrapper">
-          <div className="sel-con-name">Balaji</div>
-          <div className="sel-con-date">17-04-2023</div>
-          <div className="sel-con-purpose">paal</div>
-          <div className="sel-con-amt">22</div>
-        </div>
-
-        <div className="seller-trans-detail-wrapper">
-          <div className="sel-con-name">Balaji</div>
-          <div className="sel-con-date">17-04-2023</div>
-          <div className="sel-con-purpose">paal</div>
-          <div className="sel-con-amt">22</div>
-        </div>
-        <div className="seller-trans-detail-wrapper">
-          <div className="sel-con-name">Balaji</div>
-          <div className="sel-con-date">17-04-2023</div>
-          <div className="sel-con-purpose">paal</div>
-          <div className="sel-con-amt">22</div>
-        </div>
-        <div className="seller-trans-detail-wrapper">
-          <div className="sel-con-name">jai</div>
-          <div className="sel-con-date">17-04-2023</div>
-          <div className="sel-con-purpose">achi podi</div>
-          <div className="sel-con-amt">1000</div>
-        </div>
-        <div className="seller-trans-detail-wrapper">
-          <div className="sel-con-name">jai</div>
-          <div className="sel-con-date">17-04-2023</div>
-          <div className="sel-con-purpose">achi podi</div>
-          <div className="sel-con-amt">1000</div>
-        </div>
       </section>
     </div>
   );

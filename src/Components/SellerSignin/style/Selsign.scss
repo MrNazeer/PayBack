@@ -191,6 +191,7 @@
                 border-left: 0;
                 border-right: 0;
                 width: 35rem;
+                text-align: center;
 
             }
 
@@ -269,19 +270,29 @@
         }
     }
 
-    @media (max-width: 1100px) {
-        .sel-profile {
-            
-            flex-direction: column !important;
-            justify-content: center;
 
-        }
 
-        .menu {
-            padding-top: 2rem;
+
+}
+
+@media (max-width: 660px) {
+    .container {
+        .sel-container {
+            gap: 10rem;
+
+            .sel-profile {
+
+                flex-direction: column !important;
+                justify-content: center;
+
+            }
+
+
+
         }
 
     }
+
 
 
 }

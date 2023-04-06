@@ -23,7 +23,7 @@
             display: flex;
             align-items: center;
             gap: 8rem;
-            justify-content: space-between;
+            justify-content: space-evenly;
             background-color: burlywood;
             padding: 2rem;
             font-weight: 600;
@@ -60,6 +60,27 @@
 
             }
 
+            .conit-limit-wrapper {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                flex-wrap: wrap;
+
+                .c-limit {
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                    word-wrap: break-word;
+                }
+
+                .c-amt {
+                    font-size: 1.5rem;
+                    color: green;
+                    font-weight: 700;
+                    word-wrap: break-word;
+                }
+            }
+
             .ConIt-Amt {
                 display: flex;
                 justify-content: center;
@@ -71,11 +92,35 @@
         }
     }
 
-    @media (max-width:600px) {
 
+
+}
+
+@media (max-width:600px) {
+
+    .ConsumerIT {
         .ConIt-trans-cont {
             height: 70rem;
+
+
+            .ConIt-trans-wrapper {
+                gap: 4rem;
+
+                .ConIT-trans-left {
+                    gap: 2rem;
+                }
+
+                .conit-limit-wrapper {
+                    font-size: 1rem;
+
+                    .c-limit {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+
+            }
         }
     }
-
 }

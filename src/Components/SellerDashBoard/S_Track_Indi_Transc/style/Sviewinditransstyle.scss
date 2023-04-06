@@ -59,52 +59,100 @@
         overflow-y: scroll;
         height: 35rem;
 
-        .seller-trans-detail-wrapper {
+        .sellerTr-trans-detail-wrapper {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 6rem;
+            gap: 1rem;
             background-color: burlywood;
             font-size: 1.8rem;
             font-weight: 800;
             padding: 1rem 2rem;
             border-radius: 5px;
 
-            .sel-con-name {
+            .sellerTr-name-amt {
                 display: flex;
-                justify-content: center;
-                align-items: center;
+                justify-content: space-evenly;
+                gap: 7rem;
+
+                .seltr-con-name {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: .5rem 1rem;
+                    flex-wrap: wrap;
+                }
+
+                .seltr-con-amt {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    padding: 1rem;
+                    color: red;
+
+
+
+                    .seltr-con-icon {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                }
+
+
             }
 
-            .sel-con-date {
+            .sellerTr-date-purpose {
                 display: flex;
-                justify-content: center;
+                justify-content: space-evenly;
                 align-items: center;
+                gap: 7rem;
+                width: 100%;
+                flex-wrap: wrap;
+
+                .seltr-con-date {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 1rem;
+                    flex-wrap: wrap;
+                }
+
+                .seltr-con-purpose {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    padding: 1rem;
+                    word-wrap: break-word;
+                    color: midnightblue;
+                }
+
             }
 
-            .sel-con-purpose {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
 
 
 
 
 
-            .sel-con-amt {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                color: red;
 
-            }
+
+
 
         }
 
     }
 
-    @media (max-width: 600px) {
+
+
+}
+
+@media (max-width: 600px) {
+
+    .selleit-track {
 
         .sellerot-date-container {
             .sellerot-date-wrapper {
@@ -139,7 +187,7 @@
 
             height: 60rem;
 
-            .seller-trans-detail-wrapper {
+            .sellerTr-trans-detail-wrapper {
                 gap: 1.4rem;
                 padding: 1rem 3rem;
             }
@@ -147,5 +195,4 @@
 
 
     }
-
 }

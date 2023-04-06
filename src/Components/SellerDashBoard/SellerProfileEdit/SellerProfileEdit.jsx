@@ -11,20 +11,24 @@ export function SellerProfileEdit() {
               <p className="title">Update your profile..?</p>
             </div>
             <div className="fname">
-              <label htmlFor="">First Name</label>
-              <input type="text" />
+              <label htmlFor="">Name</label>
+              <input className="selUp-name" type="text" />
             </div>
             <div className="lname ">
-              <label htmlFor="">Last Name</label>
-              <input type="text" />
+              <label htmlFor="">Shop Name</label>
+              <input className="selUp-ShopName" type="text" disabled />
             </div>
             <div className="mob">
-              <label htmlFor="">Mobile</label>
-              <input type="tel" />
+              <label htmlFor="">Mobile No</label>
+              <input className="selUp-mob" max={10} type="tel" />
             </div>
             <div className="shop-name">
-              <label htmlFor="">Shop Name </label>
-              <input type="text" />
+              <label htmlFor="">Gmail</label>
+              <input className="selUp-gmail" type="text" disabled />
+            </div>
+            <div className="shop-name">
+              <label htmlFor="">Image</label>
+              <input className="img-input" type="file" />
             </div>
             <div className="btn-cont">
               <div className="btn">Submit</div>

@@ -1,5 +1,6 @@
 import React from "react";
 import "./style/Sviewinditransstyle.scss";
+import { BiRupee } from "react-icons/bi";
 
 export function SViewIndiTransc() {
   return (
@@ -20,50 +21,54 @@ export function SViewIndiTransc() {
         </div>
       </section>
       <section className="seller-trans-detail-cont">
-        <div className="seller-trans-detail-wrapper">
-          <div className="sel-con-name">Nazeer</div>
-          <div className="sel-con-date">17-04-2023</div>
-          <div className="sel-con-purpose">paal</div>
-          <div className="sel-con-amt">22</div>
-        </div>
-        <div className="seller-trans-detail-wrapper">
-          <div className="sel-con-name">Ananth</div>
-          <div className="sel-con-date">17-04-2023</div>
-          <div className="sel-con-purpose">paal</div>
-          <div className="sel-con-amt">22</div>
-        </div>
-
-        <div className="seller-trans-detail-wrapper">
-          <div className="sel-con-name">Balaji</div>
-          <div className="sel-con-date">17-04-2023</div>
-          <div className="sel-con-purpose">paal</div>
-          <div className="sel-con-amt">22</div>
+        <div className="sellerTr-trans-detail-wrapper">
+          <div className="sellerTr-name-amt">
+            <div className="seltr-con-name">Recevied From Nazeer</div>
+            <div className="seltr-con-amt">
+              <span className="seltr-con-icon">
+                <BiRupee />
+              </span>
+              200
+            </div>
+          </div>
+          <div className="sellerTr-date-purpose">
+            <div className="seltr-con-date">5-4-2023</div>
+            <div className="seltr-con-purpose">Milk</div>
+          </div>
         </div>
 
-        <div className="seller-trans-detail-wrapper">
-          <div className="sel-con-name">Balaji</div>
-          <div className="sel-con-date">17-04-2023</div>
-          <div className="sel-con-purpose">paal</div>
-          <div className="sel-con-amt">22</div>
+        <div className="sellerTr-trans-detail-wrapper">
+          <div className="sellerTr-name-amt">
+            <div className="seltr-con-name">Recevied From Nazeer</div>
+            <div className="seltr-con-amt">
+              <span className="seltr-con-icon">
+                <BiRupee />
+              </span>
+              200
+            </div>
+          </div>
+          <div className="sellerTr-date-purpose">
+            <div className="seltr-con-date">5-4-2023</div>
+            <div className="seltr-con-purpose">Milk</div>
+          </div>
         </div>
-        <div className="seller-trans-detail-wrapper">
-          <div className="sel-con-name">Balaji</div>
-          <div className="sel-con-date">17-04-2023</div>
-          <div className="sel-con-purpose">paal</div>
-          <div className="sel-con-amt">22</div>
+
+        <div className="sellerTr-trans-detail-wrapper">
+          <div className="sellerTr-name-amt">
+            <div className="seltr-con-name">Recevied From Nazeer</div>
+            <div className="seltr-con-amt">
+              <span className="seltr-con-icon">
+                <BiRupee />
+              </span>
+              200
+            </div>
+          </div>
+          <div className="sellerTr-date-purpose">
+            <div className="seltr-con-date">5-4-2023</div>
+            <div className="seltr-con-purpose">Milk</div>
+          </div>
         </div>
-        <div className="seller-trans-detail-wrapper">
-          <div className="sel-con-name">jai</div>
-          <div className="sel-con-date">17-04-2023</div>
-          <div className="sel-con-purpose">achi podi</div>
-          <div className="sel-con-amt">1000</div>
-        </div>
-        <div className="seller-trans-detail-wrapper">
-          <div className="sel-con-name">jai</div>
-          <div className="sel-con-date">17-04-2023</div>
-          <div className="sel-con-purpose">achi podi</div>
-          <div className="sel-con-amt">1000</div>
-        </div>
+        
       </section>
     </div>
   );

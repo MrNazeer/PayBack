@@ -85,7 +85,10 @@
 
         .input-btn {
             display: flex;
+            gap: 2rem;
+            flex-direction: column;
             justify-content: space-between;
+            align-items: center;
         }
 
         .loginbtn {
@@ -93,7 +96,7 @@
             justify-content: center;
             align-items: center;
             padding: 3px;
-            width: 13rem;
+            width: 20rem;
             font-size: 2rem;
             font-weight: 500;
             border: 1px solid black;
@@ -101,6 +104,11 @@
 
             &:active {
                 scale: 1.1;
+            }
+
+            &:hover {
+                color: blue;
+                font-weight: 700;
             }
 
             &::selection {
@@ -123,9 +131,23 @@
                 scale: 1.1;
             }
 
+
+
             &::selection {
                 background: transparent;
             }
+        }
+
+        .c-login-btn {
+            width: 20rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .or {
+            font-size: 1.5rem;
+            font-weight: 700;
         }
     }
 }

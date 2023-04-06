@@ -22,23 +22,26 @@
         .sellerIt-trans-wrapper {
             display: flex;
             align-items: center;
-            gap: 8rem;
-            justify-content: space-between;
+            gap: 5rem;
+            justify-content: space-evenly;
             background-color: burlywood;
-            padding: 2rem;
+            padding: 2rem 1rem;
             font-weight: 600;
             border-radius: 5px;
+            width: 55rem;
 
             .sellerIT-trans-left {
                 display: flex;
                 align-items: center;
-                gap: 4rem;
+                gap: 3.5rem;
+                flex: 2;
 
                 .sellerIt-Name {
                     font-size: 1.8rem;
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    flex: 1.5;
                 }
 
                 .sellerIt-view {
@@ -48,6 +51,7 @@
                     font-size: 1rem;
                     color: black;
                     text-decoration: none;
+                    flex: 1;
 
                     &:hover {
                         color: blue;
@@ -64,10 +68,15 @@
 
                 display: flex;
                 align-items: center;
-                gap: 4rem;
+                justify-content: space-evenly;
+                gap: 1rem;
+                flex: 1;
                 transition: all .5s;
 
                 .seller-mail {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     font-size: 1.7rem;
                     cursor: pointer;
 
@@ -94,11 +103,26 @@
         }
     }
 
-    @media (max-width:600px) {
+}
 
-        .sellerIt-trans-cont {
-            height: 70rem;
-        }
+@media (max-width:600px) {
+
+    .sellerIt-trans-cont {
+        height: 70rem;
+        padding: 1rem !important;
     }
 
+    .sellerIt-trans-wrapper {
+        width: 45rem !important;
+        gap: 2rem !important;
+        padding: 1rem;
+
+        .sellerIT-trans-left {
+            gap: 2rem !important;
+        }
+
+        .sellerIT-trans-right {
+            gap: 2rem !important;
+        }
+    }
 }

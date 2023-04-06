@@ -11,16 +11,20 @@ export function CprofileEdit() {
               <p className="title">Update your profile</p>
             </div>
             <div className="fname">
-              <label htmlFor="">First Name</label>
+              <label htmlFor="">Name</label>
               <input type="text" />
             </div>
             <div className="lname ">
-              <label htmlFor="">Last Name</label>
-              <input type="text" />
+              <label htmlFor="">Gmail</label>
+              <input type="text" disabled />
             </div>
             <div className="mob">
               <label htmlFor="">Mobile</label>
-              <input type="tel" />
+              <input type="tel" maxLength={10} />
+            </div>
+            <div className="lname">
+              <label htmlFor="">Image</label>
+              <input type="file" />
             </div>
             <div className="btn-cont">
               <div className="btn">Submit</div>

@@ -1,5 +1,6 @@
 import React from "react";
 import "./style/Cviewinditransstyle.scss";
+import { BiRupee } from "react-icons/bi";
 
 export function CViewIndiTrans() {
   return (
@@ -23,10 +24,19 @@ export function CViewIndiTrans() {
 
       <section className="ContIt-trans-detail-cont">
         <div className="ConIt-trans-detail-wrapper">
-          <div className="ConIt-con-name">Nazeer</div>
-          <div className="ConIt-con-date">17-04-2023</div>
-          <div className="ConIt-con-purpose">paal</div>
-          <div className="ConIt-con-amt">22</div>
+          <div className="consumerTr-name-amt">
+            <div className="contr-con-name">Paid to WallMart</div>
+            <div className="contr-con-amt">
+              <span className="contr-con-icon">
+                <BiRupee />
+              </span>
+              200
+            </div>
+          </div>
+          <div className="consumerTr-date-purpose">
+            <div className="contr-con-date">5-4-2023</div>
+            <div className="contr-con-purpose">Milk</div>
+          </div>
         </div>
       </section>
     </div>

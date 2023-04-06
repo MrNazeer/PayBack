@@ -2,6 +2,7 @@ import React from "react";
 import "./style/SellerITstyle.scss";
 import { NavLink } from "react-router-dom";
 import { GrMail } from "react-icons/gr";
+import { BiRupee } from "react-icons/bi";
 
 export function SellerIT() {
   return (
@@ -21,7 +22,32 @@ export function SellerIT() {
             <div className="seller-mail">
               <GrMail />
             </div>
-            <div className="sellerIt-Amt">10000</div>
+            <div className="sellerIt-Amt">
+              <span>
+                <BiRupee />
+              </span>
+              10000
+            </div>
+          </div>
+        </article>
+
+        <article className="sellerIt-trans-wrapper">
+          <div className="sellerIT-trans-left">
+            <div className="sellerIt-Name">Arulmozhivarman</div>
+            <NavLink to="/sellerViewIndividualTrans" className="sellerIt-view">
+              View Transaction
+            </NavLink>
+          </div>
+          <div className="sellerIT-trans-right">
+            <div className="seller-mail">
+              <GrMail />
+            </div>
+            <div className="sellerIt-Amt">
+              <span>
+                <BiRupee />
+              </span>
+              10000
+            </div>
           </div>
         </article>
       </section>

@@ -10,15 +10,15 @@ export  function Shops() {
         <section className="search-container">
           <article className="search-wrap">
             <input type="text" className="search-input" placeholder="search" />
-            <div className="search-btn">Search</div>
+            {/* <div className="search-btn">Search</div> */}
           </article>
         </section>
         <section className="cname-container">
           <div className="cname-wrapper">
-            <div className="con-name">Nazeer</div>
+            <div className="con-name">Wall Mart</div>
           </div>
           <div className="cname-wrapper">
-            <div className="con-name">Raja</div>
+            <div className="con-name">Jio mart</div>
           </div>
         </section>
       </div>

@@ -1,4 +1,4 @@
-.Consumer {
+.seller-Consumer {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,6 +26,8 @@
 
         .search-container {
             padding-top: 5rem;
+            padding-bottom: 3rem;
+
 
             .search-wrap {
                 display: flex;
@@ -33,12 +35,16 @@
                 align-items: center;
                 gap: 2rem;
 
-                .search-input {
-                    width: 40rem;
-                    height: 3.7rem;
-                    font-size: 1.7rem;
-                    font-weight: 500;
+                .con-search-input {
+                    width: 55rem;
+                    height: 4.9rem;
+                    font-size: 1.8rem;
+                    font-weight: 600;
                     text-indent: 10px;
+                    border: 2px solid black;
+                    border-radius: 5px;
+                    text-indent: 2rem;
+
 
 
                 }
@@ -68,14 +74,14 @@
 
 
         .cname-container {
-            padding: 2rem .5rem;
             width: 100%;
             overflow-y: scroll;
             // background-color: aqua;
             display: flex;
             flex-direction: column;
             gap: 1rem;
-            height: 30rem;
+            height: 40rem;
+            position: relative;
 
 
 
@@ -85,21 +91,25 @@
             .cname-wrapper {
                 display: flex;
                 align-items: center;
-                justify-content: space-between;
+                justify-content: space-evenly;
                 background-color: burlywood;
-                padding: 2rem;
+                padding: 2rem 1rem;
                 border-radius: 5px;
                 font-size: 1.5rem;
 
                 .con-name {
+                    padding-left: 1rem;
                     font-size: 1.8rem;
                     font-weight: 600;
+                    flex: 1;
                 }
             }
 
             .con-icon-cont {
                 display: flex;
-                gap: 3rem;
+                gap: 7rem;
+                justify-content: space-evenly;
+                flex: 1.5;
 
                 .con-reset {
                     display: flex;
@@ -107,19 +117,49 @@
                     align-items: center;
                     font-size: 2rem;
                     transition: all .3s;
+                    gap: 2rem;
                     cursor: pointer;
 
-                    &:active {
-                        scale: 1.3;
-
+                    &::selection {
+                        background: transparent;
                     }
 
+
+
                     .edit {
+
+                        transition: all .5s;
+
                         &:hover {
                             color: blue;
                         }
+
+                        &:active {
+                            scale: 1.3;
+
+                        }
+
+                        &::selection {
+                            background: transparent;
+                        }
+                    }
+
+                    .con-trans-limit {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 1.8rem;
+                        font-weight: 700;
+                        color: red;
+
+                        &::selection {
+                            background: transparent;
+                        }
+
                     }
                 }
+
+
 
                 .con-delete {
                     display: flex;
@@ -128,6 +168,7 @@
                     font-size: 2.5rem;
                     transition: all .3s;
                     cursor: pointer;
+                    padding: 0 1.5rem;
 
                     &:active {
                         scale: 1.3;
@@ -135,6 +176,7 @@
                     }
 
                     .con-it-reset {
+
                         &:hover {
                             color: blue !important;
                         }
@@ -143,21 +185,67 @@
 
             }
         }
-    }
 
-    @media (max-width: 600px) {
+        .seller-consumer-lable {
+            background-color: darkcyan;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10rem;
+            padding: 2.2rem 3rem;
+            border-radius: 5px;
+            font-size: 1.7rem;
+            font-weight: 700;
+            position: sticky;
+            top: 0;
+            scroll-snap-type: y mandatory;
+            color: white;
 
-        .Consumer {
-            padding: .5rem;
+            .seller-consumer-lable-left {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 3rem;
+            }
+
         }
 
-        .search-wrap {
-            flex-direction: column;
 
-            .search-input {
-                width: 35rem !important;
+
+    }
+
+}
+
+@media (max-width: 1000px) {
+
+    .seller-Consumer {
+        padding: .5rem;
+        height: 100vh;
+
+        .consumer-container {
+            overflow-y: hidden;
+
+            .seller-consumer-lable {
+                gap: 3rem !important;
+            }
+
+
+            .search-wrap {
+                flex-direction: column;
+
+                .con-search-input {
+                    width: 30rem !important;
+                }
+            }
+
+            .cname-container {
+
+                .cname-wrapper {
+                    .con-icon-cont {
+                        gap: 7rem;
+                    }
+                }
             }
         }
     }
-
 }

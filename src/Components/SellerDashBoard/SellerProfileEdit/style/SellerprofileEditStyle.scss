@@ -131,8 +131,8 @@
             }
 
             label {
-                font-size: 1.5rem;
-                font-weight: 500;
+                font-size: 1.7rem;
+                font-weight: 700;
             }
 
             input {
@@ -143,7 +143,13 @@
                 border-left: 0;
                 border-right: 0;
                 width: 35rem;
+                font-weight: 550;
+                text-align: center;
 
+            }
+
+            .img-input {
+                font-size: 1.5rem;
             }
 
             .btn-cont {

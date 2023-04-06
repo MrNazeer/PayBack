@@ -26,11 +26,6 @@ import { Link } from "react-router-dom";
 //   console.log(response);
 // };
 
-
-
-
-
-
 function showPassword() {
   var x = document.querySelector(".password");
   if (x.type === "password") {
@@ -63,7 +58,7 @@ export default function SellerSign() {
             </div>
             <div className="mob">
               <label htmlFor="">Mobile</label>
-              <input type="tel" />
+              <input type="tel" maxLength={10} />
             </div>
             <div className="email">
               <label htmlFor="">Email</label>
@@ -71,7 +66,7 @@ export default function SellerSign() {
             </div>
             <div className="pic">
               <label htmlFor="">Profile Pic</label>
-              <input type="file" name="img" id="img"  className="img"/>
+              <input type="file" name="img" id="img" className="img" />
             </div>
             <div className="pass">
               <label htmlFor="">Password</label>

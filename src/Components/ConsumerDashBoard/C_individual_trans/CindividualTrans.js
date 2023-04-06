@@ -10,15 +10,19 @@ export function CindividualTrans() {
       </section>
 
       <section className="ConIt-trans-cont">
-
         <article className="ConIt-trans-wrapper">
           <div className="ConIT-trans-left">
-            <div className="conIt-Name">Nazeer</div>
-            <NavLink to="/ConsumerViewIndividualTrans" className="ConIt-view">View Transaction</NavLink>
+            <div className="conIt-Name">nellai store</div>
+            <NavLink to="/ConsumerViewIndividualTrans" className="ConIt-view">
+              View Transaction
+            </NavLink>
           </div>
-          <div className="ConIt-Amt">10000</div>
+          <div className="conit-limit-wrapper">
+            <p className="c-limit">Limit</p>
+            <p className="c-amt">10000</p>
+          </div>
+          <div className="ConIt-Amt">5000</div>
         </article>
-  
       </section>
     </div>
   );
