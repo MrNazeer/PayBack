@@ -9,6 +9,7 @@ import { BsShop } from "react-icons/bs";
 import { BiLogOut } from "react-icons/bi";
 import { MdRepeat } from "react-icons/md";
 import { FaUserEdit } from "react-icons/fa";
+import { useState } from "react";
 
 
 // import axios from 'axios';
@@ -47,6 +48,10 @@ import { FaUserEdit } from "react-icons/fa";
 
 
 export function CMenu() {
+
+  const [consumerName, setconsumerName ] = useState(localStorage.getItem("name"));
+  const [consumerImg, setconsumerImg ] = useState(localStorage.getItem("image"));
+
   return (
     <div className="CMenu">
       <div className="containers">
@@ -59,9 +64,9 @@ export function CMenu() {
           </article>
           <article className="sidebar-profile">
             <div className="img">
-              <img src={img} alt="" />
+              <img src={consumerImg} alt="" />
             </div>
-            <div className="username">Nazeer ahamed</div>
+            <div className="username">{consumerName}</div>
           </article>
           <article className="sidebar-dashboard">
             <NavLink

@@ -1,8 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./style/Sviewinditransstyle.scss";
 import { BiRupee } from "react-icons/bi";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 export function SViewIndiTransc() {
+  const { id } = useParams();
+  const [sellerid, setSellerId] = useState(localStorage.getItem("Sid"));
+  const [consumerid, setConsumerId] = useState(id);
+  const [transaction, setTransaction] = useState([""]);
+
+  useEffect(() => {
+    try {
+      axios
+        .get("/transaction/get_IndividualTrans_consumer/", {
+          params: {
+            consumerId: consumerid,
+            sellerId: sellerid,
+          },
+        })
+        .then((res) => {
+          if (res) {
+            setTransaction(res.data);
+          }
+        })
+        .catch((err) => {
+          console.log("From then catch", err);
+        });
+    } catch (err) {
+      console.log("From try catch", err);
+    }
+  }, [consumerid, sellerid]);
+
   return (
     <div className="selleit-track">
       <section className="sellerot-heading">
@@ -21,54 +50,27 @@ export function SViewIndiTransc() {
         </div>
       </section>
       <section className="seller-trans-detail-cont">
-        <div className="sellerTr-trans-detail-wrapper">
-          <div className="sellerTr-name-amt">
-            <div className="seltr-con-name">Recevied From Nazeer</div>
-            <div className="seltr-con-amt">
-              <span className="seltr-con-icon">
-                <BiRupee />
-              </span>
-              200
+        {transaction.map((item, index) => (
+          <div key={index} className="sellerTr-trans-detail-wrapper">
+            <div className="sellerTr-name-amt">
+              <div className="seltr-con-name">
+                Recevied From {item.consumerName}
+              </div>
+              <div className="seltr-con-amt">
+                <span className="seltr-con-icon">
+                  <BiRupee />
+                </span>
+                {item.amount}
+              </div>
+            </div>
+            <div className="sellerTr-date-purpose">
+              <div className="seltr-con-date">
+                {new Date(item.date).toLocaleDateString("en-IN")}
+              </div>
+              <div className="seltr-con-purpose">{item.purpose}</div>
             </div>
           </div>
-          <div className="sellerTr-date-purpose">
-            <div className="seltr-con-date">5-4-2023</div>
-            <div className="seltr-con-purpose">Milk</div>
-          </div>
-        </div>
-
-        <div className="sellerTr-trans-detail-wrapper">
-          <div className="sellerTr-name-amt">
-            <div className="seltr-con-name">Recevied From Nazeer</div>
-            <div className="seltr-con-amt">
-              <span className="seltr-con-icon">
-                <BiRupee />
-              </span>
-              200
-            </div>
-          </div>
-          <div className="sellerTr-date-purpose">
-            <div className="seltr-con-date">5-4-2023</div>
-            <div className="seltr-con-purpose">Milk</div>
-          </div>
-        </div>
-
-        <div className="sellerTr-trans-detail-wrapper">
-          <div className="sellerTr-name-amt">
-            <div className="seltr-con-name">Recevied From Nazeer</div>
-            <div className="seltr-con-amt">
-              <span className="seltr-con-icon">
-                <BiRupee />
-              </span>
-              200
-            </div>
-          </div>
-          <div className="sellerTr-date-purpose">
-            <div className="seltr-con-date">5-4-2023</div>
-            <div className="seltr-con-purpose">Milk</div>
-          </div>
-        </div>
-        
+        ))}
       </section>
     </div>
   );

@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./style/UserSelection.scss";
 import { Link } from "react-router-dom";
 
 export default function UserSelection() {
+  useEffect(() => {
+    localStorage.clear();
+  });
+
   return (
     <div className="usersel-cont">
       <div className="container">

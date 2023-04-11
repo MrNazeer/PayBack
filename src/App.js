@@ -34,7 +34,7 @@ function App() {
       <Route path="/" element={<UserSelection />} />
       <Route path="/sellersign" element={<SellerSign />} />
       <Route path="/conprofile" element={<Conprofile />} />
-      <Route path="/sellersign/sellerlogin" element={<SellerLogin />} />
+      <Route path="/sellerlogin" element={<SellerLogin />} />
       <Route path="/conprofile/userLogin" element={<Login />} />
       <Route path="/Qrreader" element={<Qrreader />} />
       <Route path="/Qrshow" element={<QrShow />} />
@@ -44,7 +44,7 @@ function App() {
       <Route path="ConPayPage" element={<ConPayPage />} />
       <Route path="AddBuyer" element={<AddBuyer />} />
       <Route path="DeleteBuyer" element={<DeleteBuyer />} />
-      <Route path="sellerViewIndividualTrans" element={<SViewIndiTransc />} />
+      <Route path="sellerViewIndividualTrans/:id" element={<SViewIndiTransc />} />
       <Route path="ConsumerViewIndividualTrans" element={<CViewIndiTrans />} />
       
 

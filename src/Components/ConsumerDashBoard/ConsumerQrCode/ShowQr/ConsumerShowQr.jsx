@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./style/consumershowqrstyle.scss";
 import QRCode from "react-qr-code";
 
 export function ConsumerShowQr() {
+  const [consumerId, setconsumerId] = useState(localStorage.getItem("cId"));
+
+  useEffect(() => {}, [consumerId]);
+
   return (
     <div
       style={{
@@ -15,7 +19,10 @@ export function ConsumerShowQr() {
     >
       <h1 className="c-qr-title">Scan Here</h1>
       <div className="c-qr-wrapper">
-        <QRCode value="hey" style={{ width: "20rem", height: "20rem" }} />
+        <QRCode
+          value={consumerId}
+          style={{ width: "20rem", height: "20rem" }}
+        />
       </div>
     </div>
   );

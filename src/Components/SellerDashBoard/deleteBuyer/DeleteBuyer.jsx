@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import QrReader from "react-qr-reader";
-import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export function DeleteBuyer() {
-  const [delBuyer, setdelBuyer] = useState();
+  const [consumer, setConsumer] = useState("");
+  const [seller, setSeller] = useState(localStorage.getItem("Sid"));
 
   const webError = (err) => {
     if (err) {
@@ -12,11 +14,26 @@ export function DeleteBuyer() {
   };
   const webScan = (result) => {
     if (result) {
-      // let flag = confirm("Do you want to delete ?")
-      let flag = prompt("Do you want to delete ?");
-
+      let flag = window.confirm("Do you want to delete ?");
       if (flag) {
-        setdelBuyer(result);
+        setConsumer(result);
+        try {
+          axios
+            .delete(`/seller/del_consumer/${seller}}`, {
+              ConsumerId: consumer,
+            })
+            .then((res) => {
+              if (res) {
+                alert("Consumer deleted successfully");
+              }
+            })
+            .catch((err) => {
+              console.log("from then catch", err);
+              alert("Not your consumer !")
+            });
+        } catch (err) {
+          console.log("from the try catch", err);
+        }
       }
     }
   };
@@ -39,7 +56,7 @@ export function DeleteBuyer() {
         onScan={webScan}
         legacyMode={false}
       />
-      <p>{delBuyer}</p>
+      <p>{consumer}</p>
     </div>
   );
 }

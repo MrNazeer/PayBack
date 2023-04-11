@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import { gapi } from "gapi-script";
 import "./style/_conprofile.scss";
 import axios from "axios";
-import { AccessibleForwardTwoTone } from "@material-ui/icons";
 
 // import axios from 'axios';
 
@@ -43,18 +42,6 @@ function showPassword() {
   }
 }
 
-const onSuccess = (res) => {
-  console.log("LOGIN SUCCESS! Current User: ", res.profileObj);
-};
-
-const onFailure = (res) => {
-  console.log("LOGIN FAILED! red: ", res);
-};
-
-const logout = () => {
-  console.log("Log out successfully");
-};
-
 const signIn = async () => {
   try {
     const user = await gapi.auth2.signIn();
@@ -80,16 +67,16 @@ export default function Conprofile() {
     gapi.load("client:auth2", start);
   });
 
-  const url = "/consumer";
-
   const [name, setName] = useState("");
   const [mob, setMob] = useState("");
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [image, setImage] = useState("");
 
-  const consumerAdding = () => {
-    axios
+  const consumerAdding = async (e) => {
+    e.preventDefault();
+    if(name !== "" && mob !=="" && email !=="" && pass !=="" ){
+    await axios
       .post("/consumer/signin_consumer", {
         fName: name,
         mobNo: mob,
@@ -98,7 +85,7 @@ export default function Conprofile() {
       })
       .then((res) => {
         alert("sign Up successfully");
-        navigate("/sellersign/sellerlogin");
+        navigate("/conprofile/userLogin");
       });
 
     setName("");
@@ -106,6 +93,33 @@ export default function Conprofile() {
     setEmail("");
     setPass("");
     setImage("");
+  }
+  };
+
+  const onSuccess = (res) => {
+    console.log("LOGIN SUCCESS! Current User: ", res.profileObj);
+
+    axios
+      .post("/consumer/signin_consumer", {
+        fName: res.profileObj.name,
+        mail: res.profileObj.email,
+        image: res.profileObj.imageUrl,
+        googleId: res.profileObj.googleId,
+      })
+      .then((res) => {
+        alert("sign Up successfully");
+        navigate("/conprofile/userLogin");
+      }).catch((err)=>{
+        alert("Already Sigined Up")
+      })
+  };
+
+  const onFailure = (res) => {
+    console.log("SignIn FAILED! red: ", res);
+  };
+
+  const logout = () => {
+    console.log("Sign out successfully");
   };
 
   const handleName = (e) => {
@@ -138,7 +152,7 @@ export default function Conprofile() {
           </Link>
         </div>
         <section className="con-profile">
-          <article className="inputs">
+          <form className="inputs">
             <p className="title">Welcome Consumer !...</p>
             <div className="fname">
               <label htmlFor="">Name</label>
@@ -156,8 +170,8 @@ export default function Conprofile() {
               <label htmlFor="">Password</label>
               <div className="pas-cont">
                 <input
-                  className="password"
                   type="password"
+                  className="password"
                   onChange={handlePass}
                   required
                 />
@@ -175,11 +189,14 @@ export default function Conprofile() {
               />
             </div>
             <div className="btn-cont">
-              <div className="btn" onClick={consumerAdding}>
-                Submit
-              </div>
+              <input
+                type="submit"
+                value="Submit"
+                className="btn"
+                onClick={consumerAdding}
+              />
             </div>
-          </article>
+          </form>
           <article className="divide"></article>
           <div className="mob-divide">Or</div>
           <article className="c-oauth">

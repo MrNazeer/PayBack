@@ -1,6 +1,28 @@
-import React from "react";
-import "./style/shops.scss"
-export  function Shops() {
+import React, { useState, useEffect } from "react";
+import "./style/shops.scss";
+import axios from "axios";
+export function Shops() {
+  const [consumerId, setConsumerId] = useState(localStorage.getItem("cId"));
+  const [sellerId, setSellerId] = useState("");
+  const [sellerArr, setSellerArr] = useState([""]);
+
+  useEffect(() => {
+    try {
+      axios
+        .get(`/consumer/getallshops/${consumerId}`)
+        .then((res) => {
+          if (res) {
+            setSellerArr(res.data.sellers);
+          }
+        })
+        .catch((err) => {
+          console.log("from then catch", err);
+        });
+    } catch (err) {
+      console.log("from try catch", err);
+    }
+  }, [consumerId]);
+
   return (
     <div className="shops">
       <div className="consumer-container">
@@ -14,12 +36,11 @@ export  function Shops() {
           </article>
         </section>
         <section className="cname-container">
-          <div className="cname-wrapper">
-            <div className="con-name">Wall Mart</div>
-          </div>
-          <div className="cname-wrapper">
-            <div className="con-name">Jio mart</div>
-          </div>
+          {sellerArr.map((item, index) => (
+            <div key={index} className="cname-wrapper">
+              <div className="con-name">{item.shopName}</div>
+            </div>
+          ))}
         </section>
       </div>
     </div>

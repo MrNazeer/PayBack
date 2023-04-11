@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./style/menu.scss";
 import { NavLink } from "react-router-dom";
 import img from "./profile.jpg";
@@ -9,6 +9,7 @@ import { BsFillPersonFill } from "react-icons/bs";
 import { BiLogOut } from "react-icons/bi";
 import { MdRepeat } from "react-icons/md";
 import { FaUserEdit } from "react-icons/fa";
+import { useState } from "react";
 
 // import axios from 'axios';
 
@@ -43,8 +44,15 @@ import { FaUserEdit } from "react-icons/fa";
 
 
 
-
 export default function Menu() {
+  
+    const [sellerName, setSellerName] = useState("")
+
+
+  useEffect(()=>{
+    setSellerName(localStorage.getItem("Sname"));
+  })
+   
   return (
     <div className="Menu">
       <div className="containers">
@@ -59,7 +67,7 @@ export default function Menu() {
             <div className="img">
               <img src={img} alt="" />
             </div>
-            <div className="username">Nazeer ahamed</div>
+            <div className="username">{sellerName}</div>
           </article>
           <article className="sidebar-dashboard">
             <NavLink
