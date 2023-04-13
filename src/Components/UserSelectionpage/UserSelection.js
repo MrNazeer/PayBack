@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./style/UserSelection.scss";
 import { Link } from "react-router-dom";
 
+
 export default function UserSelection() {
   useEffect(() => {
     localStorage.clear();
@@ -22,7 +23,7 @@ export default function UserSelection() {
           <article className="right">
             <Link to="/conprofile" className="text2">
               Consumer
-            </Link>
+            </Link>            
           </article>
         </section>
       </div>

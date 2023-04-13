@@ -10,7 +10,37 @@
     }
 
     .conIT-date-container {
-        padding: 3rem 1rem;
+        padding: 2rem 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+
+        .s-date-btn-wrap {
+            display: flex;
+            gap: 1.5rem;
+
+            .s-date-btn {
+                background-color: blue;
+                color: white;
+                padding: 1rem 2rem;
+                font-size: 1.8rem;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: all .3s;
+
+                &:active {
+                    scale: 1.1;
+                }
+
+                &::selection {
+                    background: transparent;
+                }
+            }
+
+
+        }
 
         .sellerot-date-wrapper {
             display: flex;

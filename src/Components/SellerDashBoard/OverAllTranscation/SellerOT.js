@@ -43,8 +43,9 @@ export function SellerOT() {
   //   const filteredTransactions = transaction.filter(
   //     (item) =>
   //       new Date(item.date).toLocaleDateString("en-IN") >=
-  //         new Date(startDate) &&
-  //       new Date(item.date).toLocaleDateString("en-IN") <= new Date(endDate)
+  //         new Date("04/09/2023") &&
+  //       new Date(item.date).toLocaleDateString("en-IN") <=
+  //         new Date("04/15/2023")
   //   );
   //   // setTransaction(filteredTransactions);
   //   console.log(filteredTransactions);
@@ -54,12 +55,17 @@ export function SellerOT() {
     const start = moment(startDate, "DD/MM/YYYY").toDate();
     const end = moment(endDate, "DD/MM/YYYY").toDate();
 
-    const filteredTransactions = newTransaction.filter((item) => {
-      const itemDate = moment(item.date, "DD/MM/YYYY").toDate();
-      return itemDate > start && itemDate < end;
-    });
-    // setTransaction(filteredTransactions);
-    console.log(filteredTransactions);
+    const filteredTransactions = newTransaction
+      .map((item) => ({
+        ...item,
+        date: moment(item.date).format("DD/MM/YYYY"),
+      }))
+      .filter((item) => {
+        const itemDate = moment(item.date, "DD/MM/YYYY").toDate();
+        return itemDate > start && itemDate < end;
+      });
+    setTransaction(filteredTransactions);
+    console.log("filteredTransactions", transaction);
   };
 
   const clearTransaction = () => {
@@ -115,7 +121,7 @@ export function SellerOT() {
             </div>
             <div className="trans-date-purpose">
               <div className="sel-con-date">
-                {new Date(item.date).toLocaleDateString("en-IN")}
+                {new Date(item.date).toLocaleDateString()}
               </div>
               <div className="sel-con-purpose">{item.purpose}</div>
             </div>

@@ -4,12 +4,16 @@ import { BiRupee } from "react-icons/bi";
 import { useParams } from "react-router-dom";
 import { AiFillDelete } from "react-icons/ai";
 import axios from "axios";
+import moment from "moment";
 
 export function SViewIndiTransc() {
   const { id } = useParams();
   const [sellerid, setSellerId] = useState(localStorage.getItem("Sid"));
   const [consumerid, setConsumerId] = useState(id);
   const [transaction, setTransaction] = useState([""]);
+  const [newTransaction, setNewTransaction] = useState([""]);
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
   const [response, setResponse] = useState("");
 
   useEffect(() => {
@@ -24,6 +28,7 @@ export function SViewIndiTransc() {
         .then((res) => {
           if (res) {
             setTransaction(res.data);
+            setNewTransaction(res.data);
             setResponse("");
           }
         })
@@ -60,6 +65,34 @@ export function SViewIndiTransc() {
     }
   };
 
+  const dateSetter = () => {
+    const start = moment(startDate, "DD/MM/YYYY").toDate();
+    const end = moment(endDate, "DD/MM/YYYY").toDate();
+    const filteredTransactions = newTransaction
+      .map((item) => ({
+        ...item,
+        date: moment(item.date).format("DD/MM/YYYY"),
+      }))
+      .filter((item) => {
+        const itemDate = moment(item.date, "DD/MM/YYYY").toDate();
+        return itemDate > start && itemDate < end;
+      });
+    setTransaction(filteredTransactions);
+    console.log("filteredTransactions", transaction);
+  };
+
+  const clearTransaction = () => {
+    setTransaction(newTransaction);
+  };
+
+  const handleStartDate = (e) => {
+    setStartDate(new Date(e.target.value).toLocaleDateString("en-IN"));
+  };
+
+  const handleEndDate = (e) => {
+    setEndDate(new Date(e.target.value).toLocaleDateString("en-IN"));
+  };
+
   return (
     <div className="selleit-track">
       <section className="sellerot-heading">
@@ -69,11 +102,27 @@ export function SViewIndiTransc() {
         <div className="sellerot-date-wrapper">
           <div className="sell-start-date">
             <label htmlFor="">Start Date</label>
-            <input className="sell-track-input1" type="date" />
+            <input
+              className="sell-track-input1"
+              type="date"
+              onChange={handleStartDate}
+            />
           </div>
           <div className="sell-end-date">
             <label htmlFor="">End Date</label>
-            <input className="sell-track-input2" type="date" />
+            <input
+              className="sell-track-input2"
+              type="date"
+              onChange={handleEndDate}
+            />
+          </div>
+        </div>
+        <div className="s-date-btn-wrap">
+          <div className="s-date-btn" onClick={dateSetter}>
+            search
+          </div>
+          <div className="s-date-btn" onClick={clearTransaction}>
+            clear
           </div>
         </div>
       </section>
@@ -93,8 +142,7 @@ export function SViewIndiTransc() {
             </div>
             <div className="sellerTr-date-purpose">
               <div className="seltr-con-date">
-                {/* {new Date(item.date).toLocaleDateString("en-IN")} */}
-                {item._id}
+                {new Date(item.date).toLocaleDateString("en-IN")}
               </div>
               <div className="seltr-con-purpose">{item.purpose}</div>
               <div className="seltr-con-del">

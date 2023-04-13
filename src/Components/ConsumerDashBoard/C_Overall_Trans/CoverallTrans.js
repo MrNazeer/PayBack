@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import "./style/coverallTrans.scss";
 import { BiRupee } from "react-icons/bi";
 import axios from "axios";
+import moment from "moment";
 
 export function CoverallTrans() {
   const [consumerId, setConsumerId] = useState(localStorage.getItem("cId"));
   const [transaction, setTransaction] = useState([""]);
+  const [newTransaction, setNewTransaction] = useState([""]);
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
 
@@ -15,6 +17,7 @@ export function CoverallTrans() {
         .get(`/transaction/get_overAllTrans_consumer/${consumerId}`)
         .then((res) => {
           setTransaction(res.data);
+          setNewTransaction(res.data);
         })
         .catch((err) => {
           console.log("from then catch", err);
@@ -29,12 +32,36 @@ export function CoverallTrans() {
   }, [consumerId]);
 
   const handleStartDate = (e) => {
-    setStartDate(e.target.value);
+    setStartDate(new Date(e.target.value).toLocaleDateString("en-IN"));
   };
 
   const handleEndDate = (e) => {
-    setEndDate(e.target.value);
+    setEndDate(new Date(e.target.value).toLocaleDateString("en-IN"));
   };
+
+
+  const dateSetter = () => {
+    const start = moment(startDate, "DD/MM/YYYY").toDate();
+    const end = moment(endDate, "DD/MM/YYYY").toDate();
+
+    const filteredTransactions = newTransaction
+      .map((item) => ({
+        ...item,
+        date: moment(item.date).format("DD/MM/YYYY"),
+      }))
+      .filter((item) => {
+        const itemDate = moment(item.date, "DD/MM/YYYY").toDate();
+        return itemDate > start && itemDate < end;
+      });
+    setTransaction(filteredTransactions);
+    console.log("filteredTransactions", transaction);
+  };
+
+  const clearTransaction = () => {
+    setTransaction(newTransaction);
+  };
+
+
 
   return (
     <div className="Consumerot">
@@ -58,6 +85,14 @@ export function CoverallTrans() {
               type="date"
               onChange={handleEndDate}
             />
+          </div>
+        </div>
+        <div className="s-date-btn-wrap">
+          <div className="s-date-btn" onClick={dateSetter}>
+            search
+          </div>
+          <div className="s-date-btn" onClick={clearTransaction}>
+            clear
           </div>
         </div>
       </section>
