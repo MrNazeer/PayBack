@@ -5,6 +5,7 @@ export function Shops() {
   const [consumerId, setConsumerId] = useState(localStorage.getItem("cId"));
   const [sellerId, setSellerId] = useState("");
   const [sellerArr, setSellerArr] = useState([""]);
+  const [sellerOrgArr, setSellerOrgArr] = useState([""]);
 
   useEffect(() => {
     try {
@@ -13,6 +14,7 @@ export function Shops() {
         .then((res) => {
           if (res) {
             setSellerArr(res.data.sellers);
+            setSellerOrgArr(res.data.sellers);
           }
         })
         .catch((err) => {
@@ -23,6 +25,18 @@ export function Shops() {
     }
   }, [consumerId]);
 
+  const search = (e) => {
+    const searchTerm = e.target.value.toLowerCase();
+    const filteredDetails = sellerArr.filter((detail) =>
+      detail.shopName.toLowerCase().includes(searchTerm)
+    );
+    setSellerArr(filteredDetails);
+  };
+
+  const clearSearch = () => {
+    setSellerArr(sellerOrgArr); // reset to original list
+  };
+
   return (
     <div className="shops">
       <div className="consumer-container">
@@ -31,8 +45,15 @@ export function Shops() {
         </section>
         <section className="search-container">
           <article className="search-wrap">
-            <input type="text" className="search-input" placeholder="search" />
-            {/* <div className="search-btn">Search</div> */}
+            <input
+              type="text"
+              className="search-input"
+              placeholder="search"
+              onChange={search}
+            />
+            <div className="search-btn" onClick={clearSearch}>
+              Clear
+            </div>
           </article>
         </section>
         <section className="cname-container">

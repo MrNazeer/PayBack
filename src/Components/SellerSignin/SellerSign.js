@@ -2,31 +2,7 @@ import React, { useState } from "react";
 import "./style/Selsign.scss";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useEffect } from "react";
 
-// import axios from 'axios';
-
-// Function to encode image file to base64 string
-// const encodeImageFileAsURL = (file) => {
-//   return new Promise((resolve, reject) => {
-//     const reader = new FileReader();
-//     reader.onloadend = () => {
-//       resolve(reader.result);
-//     };
-//     reader.onerror = reject;
-//     reader.readAsDataURL(file);
-//   });
-// };
-
-// Function to make Axios request with encoded image data
-
-// const makeRequest = async () => {
-//   const fileInput = document.querySelector('input[type="file"]');
-//   const imageFile = fileInput.files[0];
-//   const imageData = await encodeImageFileAsURL(imageFile);
-//   const response = await axios.post('/upload', { imageData });
-//   console.log(response);
-// };
 
 function showPassword() {
   var x = document.querySelector(".password");
@@ -60,9 +36,22 @@ export default function SellerSign() {
   const handleSellerEmail = (e) => {
     setSemail(e.target.value);
   };
-  const handleSellerImage = (e) => {
-    setSimage(e.target.value);
+
+
+
+  const handleFileUpload = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+  
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      const base64String = reader.result.replace("data:", "").replace(/^.+,/, "");
+      // Do something with the base64String, like send it to the server
+      setSimage(base64String)
+    };
   };
+
+
   const handleSellerPass = (e) => {
     setSpass(e.target.value);
   };
@@ -74,7 +63,7 @@ export default function SellerSign() {
       shopname !== "" &&
       smob !== "" &&
       semail !== "" &&
-      // simage !== "" &&
+      simage !== "" &&
       spass !== ""
     ) {
       axios
@@ -91,7 +80,7 @@ export default function SellerSign() {
           navigates("/sellerlogin", { replace: true });
         })
         .catch((err) => {
-          alert("This mail Id Already Present !");
+          alert("This mail Id Already Present !");       
         });
     } else {
       alert("Please enter all the fileds");
@@ -128,19 +117,19 @@ export default function SellerSign() {
               />
             </div>
             <div className="email">
-              <label htmlFor="">Email</label>
+              <label htmlFor="">Gmail</label>
               <input type="email" onChange={handleSellerEmail} required />
             </div>
-            {/* <div className="pic">
+            <div className="pic">
               <label htmlFor="">Profile Pic</label>
               <input
                 type="file"
                 name="img"
                 id="img"
                 className="img"
-                onChange={handleSellerImage}
+                onChange={handleFileUpload}
               />
-            </div> */}
+            </div>
             <div className="pass">
               <label htmlFor="">Password</label>
               <div className="pas-cont">

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./style/Sviewinditransstyle.scss";
 import { BiRupee } from "react-icons/bi";
 import { useParams } from "react-router-dom";
+import { AiFillDelete } from "react-icons/ai";
 import axios from "axios";
 
 export function SViewIndiTransc() {
@@ -9,6 +10,7 @@ export function SViewIndiTransc() {
   const [sellerid, setSellerId] = useState(localStorage.getItem("Sid"));
   const [consumerid, setConsumerId] = useState(id);
   const [transaction, setTransaction] = useState([""]);
+  const [response, setResponse] = useState("");
 
   useEffect(() => {
     try {
@@ -22,6 +24,7 @@ export function SViewIndiTransc() {
         .then((res) => {
           if (res) {
             setTransaction(res.data);
+            setResponse("");
           }
         })
         .catch((err) => {
@@ -30,7 +33,32 @@ export function SViewIndiTransc() {
     } catch (err) {
       console.log("From try catch", err);
     }
-  }, [consumerid, sellerid]);
+  }, [consumerid, response]);
+
+  const delATransaction = (transaId, amt) => {
+    console.log("TransaId", transaId);
+    try {
+      axios
+        .delete("/transaction/del_transaction/", {
+          params: {
+            consumerId: consumerid,
+            sellerId: sellerid,
+            id: transaId,
+            amt: amt,
+          },
+        })
+        .then((res) => {
+          console.log(res.data);
+          alert("Transaction deleted successfully");
+          setResponse("true");
+        })
+        .catch((err) => {
+          console.log("from then catch", err);
+        });
+    } catch (err) {
+      console.log("from try catch", err);
+    }
+  };
 
   return (
     <div className="selleit-track">
@@ -65,9 +93,15 @@ export function SViewIndiTransc() {
             </div>
             <div className="sellerTr-date-purpose">
               <div className="seltr-con-date">
-                {new Date(item.date).toLocaleDateString("en-IN")}
+                {/* {new Date(item.date).toLocaleDateString("en-IN")} */}
+                {item._id}
               </div>
               <div className="seltr-con-purpose">{item.purpose}</div>
+              <div className="seltr-con-del">
+                <AiFillDelete
+                  onClick={() => delATransaction(item._id, item.amount)}
+                />
+              </div>
             </div>
           </div>
         ))}

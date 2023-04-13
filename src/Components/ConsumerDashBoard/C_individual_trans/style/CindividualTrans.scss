@@ -69,15 +69,27 @@
 
                 .c-limit {
                     font-size: 1.5rem;
-                    font-weight: 600;
+                    font-weight: 800;
                     word-wrap: break-word;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                 }
 
                 .c-amt {
-                    font-size: 1.5rem;
+                    font-size: 1.8rem;
                     color: green;
                     font-weight: 700;
                     word-wrap: break-word;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .c-amt-rup {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
                 }
             }
 
@@ -87,6 +99,12 @@
                 align-items: center;
                 font-size: 1.8rem;
                 color: red;
+
+                .c-amt-rup {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
             }
 
         }

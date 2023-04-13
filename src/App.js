@@ -45,7 +45,7 @@ function App() {
       <Route path="AddBuyer" element={<AddBuyer />} />
       <Route path="DeleteBuyer" element={<DeleteBuyer />} />
       <Route path="sellerViewIndividualTrans/:id" element={<SViewIndiTransc />} />
-      <Route path="ConsumerViewIndividualTrans" element={<CViewIndiTrans />} />
+      <Route path="ConsumerViewIndividualTrans/:id" element={<CViewIndiTrans />} />
       
 
 

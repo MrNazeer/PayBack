@@ -34,9 +34,21 @@ export function SellerProfileEdit() {
   const handlemob = (e) => {
     setSellerMob(e.target.value);
   };
-  const handleimage = (e) => {
-    setsellerImage(e.target.value);
+
+  const handleFileUpload = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      const base64String = reader.result
+        .replace("data:", "")
+        .replace(/^.+,/, "");
+      // Do something with the base64String, like send it to the server
+      setsellerImage(base64String);
+    };
   };
+
   const handlePass = (e) => {
     setsellerPaass(e.target.value);
   };
@@ -48,7 +60,7 @@ export function SellerProfileEdit() {
       sellerid !== "" &&
       sellerName !== "" &&
       sellerMob !== "" &&
-      // sellerImage !== "" &&
+      sellerImage !== "" &&
       sellerPass !== ""
     ) {
       try {
@@ -57,10 +69,11 @@ export function SellerProfileEdit() {
             Name: sellerName,
             mobNo: sellerMob,
             password: sellerPass,
-            // image:sellerImage
+            image: sellerImage,
           })
           .then((res) => {
             console.log(res.data);
+            localStorage.setItem("image", sellerImage);
             alert("Updated Successfully");
           })
           .catch((err) => {
@@ -116,7 +129,11 @@ export function SellerProfileEdit() {
             </div>
             <div className="shop-name">
               <label htmlFor="">Image</label>
-              <input className="img-input" type="file" onChange={handleimage} />
+              <input
+                className="img-input"
+                type="file"
+                onChange={handleFileUpload}
+              />
             </div>
             <div className="shop-name">
               <label htmlFor="">Password</label>

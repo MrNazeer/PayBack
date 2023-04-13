@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import "./style/SellerOTStyle.scss";
 import { BiRupee } from "react-icons/bi";
 import axios from "axios";
+import moment from "moment";
 
 export function SellerOT() {
   const [sellerId, SetSellerId] = useState(localStorage.getItem("Sid"));
   const [transaction, setTransaction] = useState([""]);
+  const [newTransaction, setNewTransaction] = useState([""]);
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
 
@@ -15,6 +17,7 @@ export function SellerOT() {
         .get(`/transaction/get_overAllTrans_seller/${sellerId}`)
         .then((res) => {
           setTransaction(res.data);
+          setNewTransaction(res.data);
         })
         .catch((err) => {
           console.log("from then catch", err);
@@ -29,11 +32,38 @@ export function SellerOT() {
   }, [sellerId]);
 
   const handleStartDate = (e) => {
-    setStartDate(e.target.value);
+    setStartDate(new Date(e.target.value).toLocaleDateString("en-IN"));
   };
 
   const handleEndDate = (e) => {
-    setEndDate(e.target.value);
+    setEndDate(new Date(e.target.value).toLocaleDateString("en-IN"));
+  };
+
+  // const dateSetter = () => {
+  //   const filteredTransactions = transaction.filter(
+  //     (item) =>
+  //       new Date(item.date).toLocaleDateString("en-IN") >=
+  //         new Date(startDate) &&
+  //       new Date(item.date).toLocaleDateString("en-IN") <= new Date(endDate)
+  //   );
+  //   // setTransaction(filteredTransactions);
+  //   console.log(filteredTransactions);
+  // };
+
+  const dateSetter = () => {
+    const start = moment(startDate, "DD/MM/YYYY").toDate();
+    const end = moment(endDate, "DD/MM/YYYY").toDate();
+
+    const filteredTransactions = newTransaction.filter((item) => {
+      const itemDate = moment(item.date, "DD/MM/YYYY").toDate();
+      return itemDate > start && itemDate < end;
+    });
+    // setTransaction(filteredTransactions);
+    console.log(filteredTransactions);
+  };
+
+  const clearTransaction = () => {
+    setTransaction(newTransaction);
   };
 
   return (
@@ -60,6 +90,14 @@ export function SellerOT() {
             />
           </div>
         </div>
+        <div className="s-date-btn-wrap">
+          <div className="s-date-btn" onClick={dateSetter}>
+            search
+          </div>
+          <div className="s-date-btn" onClick={clearTransaction}>
+            clear
+          </div>
+        </div>
       </section>
       <section className="seller-trans-detail-cont">
         {transaction.map((item, index) => (
@@ -76,7 +114,9 @@ export function SellerOT() {
               </div>
             </div>
             <div className="trans-date-purpose">
-              <div className="sel-con-date">{new Date(item.date).toLocaleDateString("en-IN")}</div>
+              <div className="sel-con-date">
+                {new Date(item.date).toLocaleDateString("en-IN")}
+              </div>
               <div className="sel-con-purpose">{item.purpose}</div>
             </div>
           </div>

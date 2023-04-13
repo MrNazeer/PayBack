@@ -103,6 +103,7 @@ export default function Login() {
         localStorage.setItem("mail",res.data.data.mail);
         localStorage.setItem("image",res.data.data.image);
         localStorage.setItem("sellers", JSON.stringify(res.data.data.sellers));
+        localStorage.setItem("cId", res.data.data._id);
         navigate("/Consumerdashboard/CDashboard");
       }
       else{

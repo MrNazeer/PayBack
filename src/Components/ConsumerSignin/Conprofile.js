@@ -6,29 +6,7 @@ import { gapi } from "gapi-script";
 import "./style/_conprofile.scss";
 import axios from "axios";
 
-// import axios from 'axios';
 
-// Function to encode image file to base64 string
-// const encodeImageFileAsURL = (file) => {
-//   return new Promise((resolve, reject) => {
-//     const reader = new FileReader();
-//     reader.onloadend = () => {
-//       resolve(reader.result);
-//     };
-//     reader.onerror = reject;
-//     reader.readAsDataURL(file);
-//   });
-// };
-
-// Function to make Axios request with encoded image data
-
-// const makeRequest = async () => {
-//   const fileInput = document.querySelector('input[type="file"]');
-//   const imageFile = fileInput.files[0];
-//   const imageData = await encodeImageFileAsURL(imageFile);
-//   const response = await axios.post('/upload', { imageData });
-//   console.log(response);
-// };
 
 const clientId =
   "346729302127-lt9a58fdsgd7c78sa7ccc6g2dgub119o.apps.googleusercontent.com";
@@ -55,8 +33,10 @@ const signIn = async () => {
 };
 
 export default function Conprofile() {
+  //Navigate hooks
   const navigate = useNavigate();
 
+  //Auth
   useEffect(() => {
     function start() {
       gapi.auth2.init({
@@ -67,34 +47,37 @@ export default function Conprofile() {
     gapi.load("client:auth2", start);
   });
 
+  // State defined here
   const [name, setName] = useState("");
   const [mob, setMob] = useState("");
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [image, setImage] = useState("");
 
+
+  // Non Auth user Check 
   const consumerAdding = async (e) => {
     e.preventDefault();
-    if(name !== "" && mob !=="" && email !=="" && pass !=="" ){
+    if(name !== "" && mob !=="" && email !=="" && pass !=="" && image!=="" ){
     await axios
       .post("/consumer/signin_consumer", {
         fName: name,
         mobNo: mob,
         mail: email,
         password: pass,
+        image:image,
       })
       .then((res) => {
         alert("sign Up successfully");
         navigate("/conprofile/userLogin");
-      });
-
-    setName("");
-    setMob("");
-    setEmail("");
-    setPass("");
-    setImage("");
+      }).catch((err)=>{
+        alert("Already Signed In");        
+      })    
   }
   };
+
+
+  //Auth user check
 
   const onSuccess = (res) => {
     console.log("LOGIN SUCCESS! Current User: ", res.profileObj);
@@ -138,9 +121,19 @@ export default function Conprofile() {
     setPass(e.target.value);
   };
 
-  const handleImage = (e) => {
-    setImage(e.target.value);
+  const handleFileUpload = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+  
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      const base64String = reader.result.replace("data:", "").replace(/^.+,/, "");
+      // Do something with the base64String, like send it to the server
+      setImage(base64String)
+    };
   };
+
+  
 
   return (
     <div className="container">
@@ -185,7 +178,7 @@ export default function Conprofile() {
               <input
                 className="conp-img-input"
                 type="file"
-                onChange={handleImage}
+                onChange={handleFileUpload}
               />
             </div>
             <div className="btn-cont">

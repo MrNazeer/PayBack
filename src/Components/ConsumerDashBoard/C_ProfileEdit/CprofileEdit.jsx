@@ -32,9 +32,21 @@ export function CprofileEdit() {
   const handlemob = (e) => {
     setConsumerMob(e.target.value);
   };
-  const handleimage = (e) => {
-    setConsumerImage(e.target.value);
-  };
+
+  // const handleFileUpload = (event) => {
+  //   const file = event.target.files[0];
+  //   const reader = new FileReader();
+
+  //   reader.readAsDataURL(file);
+  //   reader.onload = () => {
+  //     const base64String = reader.result
+  //       .replace("data:", "")
+  //       .replace(/^.+,/, "");
+  //     // Do something with the base64String, like send it to the server
+  //     setConsumerImage(base64String);
+  //   };
+  // };
+
   const handlePass = (e) => {
     setConsumerPaass(e.target.value);
   };
@@ -53,7 +65,6 @@ export function CprofileEdit() {
             fName: consumerName,
             mobNo: consumerMob,
             password: consumerPass,
-            // image:consumerImage
           })
           .then((res) => {
             console.log(res.data);
@@ -69,10 +80,6 @@ export function CprofileEdit() {
     } else {
       alert("Please enter all the fileds");
     }
-    setConsumerName("");
-    setConsumerMob("");
-    setConsumerImage("");
-    setConsumerPaass("");
   };
 
   return (
@@ -95,10 +102,10 @@ export function CprofileEdit() {
               <label htmlFor="">Mobile</label>
               <input type="tel" maxLength={10} onChange={handlemob} />
             </div>
-            <div className="lname">
+            {/* <div className="lname">
               <label htmlFor="">Image</label>
-              <input type="file" onChange={handleimage} />
-            </div>
+              <input type="file" onChange={handleFileUpload} />
+            </div> */}
             <div className="lname">
               <label htmlFor="">Password</label>
               <input type="password" onChange={handlePass} />

@@ -11,47 +11,23 @@ import { MdRepeat } from "react-icons/md";
 import { FaUserEdit } from "react-icons/fa";
 import { useState } from "react";
 
-// import axios from 'axios';
-
-// // Function to decode base64 string to image
-// const decodeBase64Image = (dataUrl) => {
-//   const match = dataUrl.match(/^data:(.*);base64,(.*)$/);
-//   if (!match) {
-//     throw new Error('Invalid base64 string');
-//   }
-//   const contentType = match[1];
-//   const content = match[2];
-//   const byteCharacters = atob(content);
-//   const byteArrays = new Array(byteCharacters.length);
-//   for (let i = 0; i < byteCharacters.length; i++) {
-//     byteArrays[i] = byteCharacters.charCodeAt(i);
-//   }
-//   const byteArray = new Uint8Array(byteArrays);
-//   const blob = new Blob([byteArray], { type: contentType });
-//   return URL.createObjectURL(blob);
-// };
-
-// // Function to make Axios request and decode response data
-// const makeRequest = async () => {
-//   const response = await axios.get('/image');
-//   const imageData = response.data;
-//   const imageUrl = decodeBase64Image(imageData);
-//   const imageElement = document.createElement('img');
-//   imageElement.src = imageUrl;
-//   document.body.appendChild(imageElement);
-// };
-
-
 
 
 export default function Menu() {
   
     const [sellerName, setSellerName] = useState("")
+    const [sellerImage, setSellerImage] = useState("")
 
 
   useEffect(()=>{
     setSellerName(localStorage.getItem("Sname"));
+    setSellerImage(localStorage.getItem("image"));
   })
+
+  const base64String = sellerImage; // Base64 encoded string without data URI
+  const binaryString = Uint8Array.from(atob(base64String), c => c.charCodeAt(0));
+  const blob = new Blob([binaryString], {type: "image/png"});
+  const imageUrl = URL.createObjectURL(blob);
    
   return (
     <div className="Menu">
@@ -65,7 +41,7 @@ export default function Menu() {
           </article>
           <article className="sidebar-profile">
             <div className="img">
-              <img src={img} alt="" />
+              <img src={imageUrl} alt="img" />
             </div>
             <div className="username">{sellerName}</div>
           </article>

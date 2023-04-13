@@ -13,10 +13,12 @@ export function SellerIT() {
   const IndivdualtransactionGetter = () => {
     try {
       axios
-        .get(`/transaction/get_overAllTrans_seller/${sellerId}`)
+        .get(`/seller/detailsOfSeller/${sellerId}`)
         .then((res) => {
-          setTransaction(res.data);
-          // console.log(res.data);
+          setTransaction(res.data.Consumers
+            );
+          console.log(res.data.Consumers
+            );
         })
         .catch((err) => {
           console.log("from then catch", err);
@@ -41,9 +43,9 @@ export function SellerIT() {
         {transaction.map((item, index) => (
           <article key={index} className="sellerIt-trans-wrapper">
             <div className="sellerIT-trans-left">
-              <div className="sellerIt-Name">{item.consumerName}</div>
+              <div className="sellerIt-Name">{item.ConsumerName}</div>
               <NavLink
-                to={`/sellerViewIndividualTrans/${item.consumerId}`}
+                to={`/sellerViewIndividualTrans/${item.ConsumerId}`}
                 className="sellerIt-view"
               >
                 View Transaction
@@ -57,7 +59,7 @@ export function SellerIT() {
                 <span>
                   <BiRupee />
                 </span>
-                {item.amount}
+                {item.TotalAmt}
               </div>
             </div>
           </article>

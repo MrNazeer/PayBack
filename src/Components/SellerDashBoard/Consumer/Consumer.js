@@ -8,7 +8,7 @@ export function Consumer() {
   const [sellerId, setSellerId] = useState(localStorage.getItem("Sid"));
 
   const [ConDetails, setConDetailas] = useState([""]);
-
+  const [orgCondetails, setOrgConDetails] = useState([""]);
   const [consumerLimit, setConsumerLimit] = useState("");
   const [consumerId, setConsumerId] = useState(null);
 
@@ -19,7 +19,7 @@ export function Consumer() {
         if (res) {
           let arr = res.data.Consumers;
           setConDetailas(arr);
-          console.log(ConDetails[0]);
+          setOrgConDetails(arr);
         } else {
           console.log("Id Not Found");
         }
@@ -27,7 +27,7 @@ export function Consumer() {
     } catch (err) {
       console.log(err);
     }
-  }, [sellerId, consumerLimit]);
+  }, [sellerId, consumerLimit, setConDetailas]);
 
   //Reset Limit for Cosnumer
 
@@ -82,10 +82,15 @@ export function Consumer() {
   };
 
   const search = (e) => {
-    // let a = ConDetails.map((array) => {
-    //  return ConDetails.filter(() => array.ConsumerName.includes(e.target.value))
-    // });
-    // console.log(a);
+    const searchTerm = e.target.value.toLowerCase();
+    const filteredDetails = ConDetails.filter((detail) =>
+      detail.ConsumerName.toLowerCase().includes(searchTerm)
+    );
+    setConDetailas(filteredDetails);
+  };
+
+  const clearSearch = () => {
+    setConDetailas(orgCondetails); // reset to original list
   };
 
   return (
@@ -102,6 +107,9 @@ export function Consumer() {
               placeholder="search"
               onChange={search}
             />
+            <div className="search-btn" onClick={clearSearch}>
+              Clear
+            </div>
           </article>
         </section>
 

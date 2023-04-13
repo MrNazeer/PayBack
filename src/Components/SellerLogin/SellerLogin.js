@@ -40,11 +40,9 @@ export default function Login() {
           localStorage.setItem("image", res.data.data.image);
           localStorage.setItem("Sid", res.data.data._id);
           navigate("/Sellerdashboard/Sdashboard");
-        }else{
-          alert("Inavlid Mail Id and Password");
         }
       }).catch((err)=>{
-        console.log(err);
+        alert("Invalid Mail Id or PassWord")
       })
     }
 

@@ -109,7 +109,7 @@
                 display: flex;
                 justify-content: space-evenly;
                 align-items: center;
-                gap: 7rem;
+                gap: 4rem;
                 width: 100%;
                 flex-wrap: wrap;
 
@@ -129,6 +129,21 @@
                     padding: 1rem;
                     word-wrap: break-word;
                     color: midnightblue;
+                }
+
+                .seltr-con-del {
+                    font-size: 2rem;
+                    cursor: pointer;
+                    transition: all .5s;
+
+                    &:active {
+                        scale: 1.4;
+                    }
+
+                    &:hover {
+                        color: red;
+
+                    }
                 }
 
             }
