@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./style/consumerscanqrstyle.scss";
 import QrReader from "react-qr-reader";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export function ConsumerScanQr() {
   const navigate = useNavigate();
-  const [sellerId, setSellerId] = useState("");
+  // const [sellerId, setSellerId] = useState();
 
   const webError = (err) => {
     if (err) {
@@ -14,8 +14,8 @@ export function ConsumerScanQr() {
   };
   const webScan = (result) => {
     if (result) {
-      setSellerId(result);
-      navigate(`/ConPayPage/${sellerId}`);
+      // setSellerId(result);
+      navigate(`/ConPayPage/${result}`);
     }
 
     //Optional code.
@@ -43,9 +43,6 @@ export function ConsumerScanQr() {
         onScan={webScan}
         legacyMode={false}
       />
-      <NavLink to="/ConPayPage" className="sample-btn">
-        press
-      </NavLink>
     </div>
   );
 }

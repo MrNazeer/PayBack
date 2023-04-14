@@ -41,7 +41,7 @@ function App() {
       <Route path="SellerQrShow" element={<SellerShowQr />} /> 
       <Route path="ConsumerQrScan" element={<ConsumerScanQr />} />
       <Route path="ConsumerQrShow" element={<ConsumerShowQr />} />
-      <Route path="ConPayPage" element={<ConPayPage />} />
+      <Route path="ConPayPage/:id" element={<ConPayPage />} />
       <Route path="AddBuyer" element={<AddBuyer />} />
       <Route path="DeleteBuyer" element={<DeleteBuyer />} />
       <Route path="sellerViewIndividualTrans/:id" element={<SViewIndiTransc />} />

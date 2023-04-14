@@ -5,10 +5,10 @@ import { useNavigate } from "react-router-dom";
 
 export function AddBuyer() {
   const navigate = useNavigate();
-  const [consumer, setconsumer] = useState("643100c7d8317da2eacb9f2a");
+  // const [consumer, setconsumer] = useState("");
   const [seller, setSeller] = useState(localStorage.getItem("Sid"));
   const [shop, setShop] = useState(localStorage.getItem("Shopename"));
-  const [limit, setLimit] = useState("1000");
+  // const [limit, setLimit] = useState("1000");
 
   // useEffect(() => {
   //   axios
@@ -36,31 +36,31 @@ export function AddBuyer() {
   const webScan = (result) => {
     if (result) {
       let limitAmt = prompt("Please provide the limit for customer?");
-      setLimit(limitAmt);
-      if (limit) {
-        setconsumer(result);
+      // setLimit(limitAmt);
+      if (limitAmt) {
+        // setconsumer(result);
         try {
           axios
             .patch(`/seller/add_cosnumer/${seller}`, {
-              ConsumerId: consumer,
-              limit: limit,
+              ConsumerId: result,
+              limit: limitAmt,
               shopName: shop,
             })
             .then((res) => {
               if (res) {
                 alert("Consumer Added");
+                console.log("Consumer Added", res);
                 navigate("/Sellerdashboard/Sdashboard");
               }
             })
             .catch((errs) => {
               alert("Already Your Consumer");
+              console.log("Consumer Added err", errs);
             });
         } catch (err) {
           console.log("from try catch", err);
         }
       }
-    } else {
-      alert("Please refreash and Scan Again");
     }
   };
 
@@ -82,7 +82,6 @@ export function AddBuyer() {
         onScan={webScan}
         legacyMode={false}
       />
-      <p>{consumer}</p>
     </div>
   );
 }

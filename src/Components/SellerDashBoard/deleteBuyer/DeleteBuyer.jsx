@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export function DeleteBuyer() {
-  const [consumer, setConsumer] = useState("");
+  // const [consumer, setConsumer] = useState();
   const [seller, setSeller] = useState(localStorage.getItem("Sid"));
 
   const webError = (err) => {
@@ -16,23 +16,24 @@ export function DeleteBuyer() {
     if (result) {
       let flag = window.confirm("Do you want to delete ?");
       if (flag) {
-        setConsumer(result);
+        // setConsumer(result);
         try {
           axios
-            .delete(`/seller/del_consumer/${seller}}`, {
-              ConsumerId: consumer,
+            .patch(`/seller/del_consumer/${seller}`, {
+              ConsumerId: result,
             })
             .then((res) => {
               if (res) {
                 alert("Consumer deleted successfully");
+                console.log("Consumer deleted successfully", res);
               }
             })
             .catch((err) => {
-              console.log("from then catch", err);
-              alert("Not your consumer !")
+              console.log("from delete consumer then catch", err);
+              alert("Not your consumer !");
             });
         } catch (err) {
-          console.log("from the try catch", err);
+          console.log("from delete consumer the try catch", err);
         }
       }
     }
@@ -56,7 +57,6 @@ export function DeleteBuyer() {
         onScan={webScan}
         legacyMode={false}
       />
-      <p>{consumer}</p>
     </div>
   );
 }
