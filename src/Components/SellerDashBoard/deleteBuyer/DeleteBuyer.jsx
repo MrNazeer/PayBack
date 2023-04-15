@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export function DeleteBuyer() {
+  const navigate = useNavigate();
   // const [consumer, setConsumer] = useState();
   const [seller, setSeller] = useState(localStorage.getItem("Sid"));
 
@@ -26,6 +27,7 @@ export function DeleteBuyer() {
               if (res) {
                 alert("Consumer deleted successfully");
                 console.log("Consumer deleted successfully", res);
+                navigate("/Sellerdashboard/Sdashboard");
               }
             })
             .catch((err) => {

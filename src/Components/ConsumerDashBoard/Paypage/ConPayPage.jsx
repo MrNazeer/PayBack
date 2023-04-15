@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import "./style/conpaypagestyle.scss";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export function ConPayPage() {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [consumerId, setConsumerId] = useState(localStorage.getItem("cId"));
   // const [sellerId, setSellerId] = useState(id);
@@ -111,6 +113,7 @@ export function ConPayPage() {
           .then((res) => {
             alert("Payment Successfully Done");
             console.log(res);
+            navigate("/Consumerdashboard/CDashboard");
           })
           .catch((err) => {
             alert("Please check your shope");

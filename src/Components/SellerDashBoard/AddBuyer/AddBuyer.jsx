@@ -49,7 +49,6 @@ export function AddBuyer() {
             .then((res) => {
               if (res) {
                 alert("Consumer Added");
-                console.log("Consumer Added", res);
                 navigate("/Sellerdashboard/Sdashboard");
               }
             })
